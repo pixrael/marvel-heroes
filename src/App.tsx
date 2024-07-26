@@ -3,6 +3,8 @@ import './App.css';
 import CharacterListPage from './pages/character-list-page';
 import ErrorPage from './pages/error-page';
 import DetailsPage from './pages/details-page';
+import { FavoriteContext } from './contexts/favorite-context';
+import { useState } from 'react';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  const [count, setCount] = useState(0);
+  return (
+    <FavoriteContext.Provider value={{ count, setCount }}>
+      <RouterProvider router={router} />
+    </FavoriteContext.Provider>
+  );
 }
 
 export default App;
