@@ -1,5 +1,5 @@
 function DetailsPage() {
-  return <>Details page</>;
+  return <>Details page!</>;
 }
 
 export default DetailsPage;

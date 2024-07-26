@@ -1,5 +1,5 @@
 function CharacterListPage() {
-  return <>Character List page</>;
+  return <>Character List page!</>;
 }
 
 export default CharacterListPage;
