@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import { FavoriteContext } from '../contexts/favorite-context';
 import { Link } from 'react-router-dom';
+import Header from '../components/header';
 
 function CharacterListPage() {
   const myValueFromContext = useContext(FavoriteContext);
   return (
     <>
+      <Header />
       Character List page!! {myValueFromContext.count}
       <br />
       <button

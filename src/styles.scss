@@ -66,6 +66,58 @@ h6 {
 /* || VARIABLES */
 :root {
   --HEADER-BGCOLOR: #000;
+  --HEADER-HEIGHT: 84px;
+  --HEADER-PADDINGLEFT: 48px;
+  --HEADER-PADDINGRIGHT: 48px;
+}
+
+/* || UTILITY CLASSES */
+.clickeable {
+  cursor: pointer;
 }
 
 /* || BLOCKS */
+.logo {
+  background: none;
+  border: none;
+  padding: 0;
+  height: 52px;
+  width: 130px;
+}
+
+.iconbtn {
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.header {
+  align-items: center;
+  background-color: var(--HEADER-BGCOLOR);
+  display: flex;
+  height: var(--HEADER-HEIGHT);
+  justify-content: space-between;
+  padding-left: var(--HEADER-PADDINGLEFT);
+  padding-right: var(--HEADER-PADDINGRIGHT);
+}
+
+.favcounter {
+  display: flex;
+  align-items: center;
+  width: 56px;
+  height: 37.68px;
+  padding-left: 8px;
+}
+
+/* || ELEMENTS */
+.favcounter__text {
+  margin-left: 9px;
+  font-family: 'Roboto Condensed';
+  font-size: 16px;
+  font-weight: 400;
+  color: #ffffff;
+}
