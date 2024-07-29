@@ -69,13 +69,21 @@ h6 {
   isolation: isolate;
 }
 
+.test {
+  background-color: green;
+  /* width: 100%;
+  overflow-x: hidden; */
+}
+
 /* || VARIABLES */
 :root {
   --HEADER-BGCOLOR: #000;
   --HEADER-HEIGHT: 84px;
+  --HEADER-MINWIDTH: 393px;
   --HEADER-PADDINGLEFT: 48px;
   --HEADER-PADDINGRIGHT: 48px;
-  --HEADER-MINWIDTH: 393px;
+  --HEADER-PADDINGLEFTMOBILE: 16px;
+  --HEADER-PADDINGRIGHTMOBILE: 16px;
 }
 
 /* || UTILITY CLASSES */
@@ -87,8 +95,8 @@ h6 {
 .logo {
   background: none;
   border: none;
-  padding: 0;
   height: 52px;
+  padding: 0;
   width: 130px;
 }
 
@@ -108,17 +116,44 @@ h6 {
   display: flex;
   height: var(--HEADER-HEIGHT);
   justify-content: space-between;
+  min-width: var(--HEADER-MINWIDTH);
   padding-left: var(--HEADER-PADDINGLEFT);
   padding-right: var(--HEADER-PADDINGRIGHT);
-  min-width: var(--HEADER-MINWIDTH);
+}
+
+@media (width <= 393px) {
+  .header {
+    align-items: center;
+    background-color: var(--HEADER-BGCOLOR);
+    display: flex;
+    height: var(--HEADER-HEIGHT);
+    justify-content: space-between;
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 100%;
+  }
 }
 
 .favcounter {
-  display: flex;
   align-items: center;
-  width: 56px;
+  display: flex;
   height: 37.68px;
   padding-left: 8px;
+  width: 56px;
+}
+
+.bodypage {
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 48px;
+}
+
+@media (width <= 330px) {
+  .bodypage {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
+  }
 }
 
 /* || ELEMENTS */
@@ -129,3 +164,5 @@ h6 {
   font-weight: 400;
   color: #ffffff;
 }
+
+/* || MODIFIERS */

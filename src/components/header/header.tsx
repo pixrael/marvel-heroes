@@ -1,5 +1,5 @@
-import marvelLogo from '../assets/imgs/Marvel logo.svg';
-import iconHeart from '../assets/imgs/iconHeart.svg';
+import marvelLogo from '../../assets/imgs/Marvel logo.svg';
+import iconHeart from '../../assets/imgs/iconHeart.svg';
 
 function Header() {
   const handleLogoClick = () => {
