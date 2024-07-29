@@ -1,5 +1,4 @@
 import iconAmplifier from '../../assets/imgs/amplifier button.svg';
-import './search-character.scss';
 
 function SearchCharacter() {
   const handleAmplifierClick = () => {
@@ -7,14 +6,17 @@ function SearchCharacter() {
   };
   return (
     <div className="searchcontainer">
-      <button className="iconbtn" onClick={handleAmplifierClick}>
-        <img className="iconbtn__img" src={iconAmplifier} />
-      </button>
-      <input
-        type="text"
-        className="searchcontainer__searchinput"
-        placeholder="SEARCH A CHARACTER..."
-      />
+      <div className="search">
+        <button className="iconbtn" onClick={handleAmplifierClick}>
+          <img className="iconbtn__img" src={iconAmplifier} />
+        </button>
+        <input
+          type="text"
+          className="search__searchinput"
+          placeholder="SEARCH A CHARACTER..."
+        />
+      </div>
+      <p className="searchcontainer__numresults">20 results</p>
     </div>
   );
 }

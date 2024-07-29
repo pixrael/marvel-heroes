@@ -159,7 +159,7 @@ h6 {
   }
 }
 
-.searchcontainer {
+.search {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #000;
@@ -178,7 +178,7 @@ h6 {
   width: 12px;
 }
 
-.searchcontainer__searchinput {
+.search__searchinput {
   margin-left: 3.5px;
   border: none;
   outline: none;
@@ -200,6 +200,15 @@ h6 {
   &:focus {
     outline: none;
   }
+}
+
+.searchcontainer__numresults {
+  margin-top: 12px;
+  font-family: 'Roboto Condensed';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.06px;
+  text-align: left;
 }
 
 /* || MODIFIERS */
