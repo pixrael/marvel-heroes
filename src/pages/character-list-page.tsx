@@ -3,23 +3,18 @@ import { FavoriteContext } from '../contexts/favorite-context';
 import { Link } from 'react-router-dom';
 import Header from '../components/header/header';
 import SearchCharacter from '../components/search-character/search-character';
-import { useCharacters } from '../hooks/useCharacters';
+import HeroList from '../components/hero-list/hero-list';
 
 function CharacterListPage() {
   /* const myValueFromContext = useContext(FavoriteContext); */
   console.log('CHARACTERLIST PAGE');
-
-  const { user, isLoading, isError } = useCharacters();
-
-  useEffect(() => {
-    console.log('RESPONSE ', user, isLoading, isError);
-  }, [user, isLoading, isError]);
 
   return (
     <>
       <Header />
       <div className="bodypage">
         <SearchCharacter />
+        <HeroList fetchParams="nameStartsWith=Wol" />
       </div>
       {/*       Character List page!! {myValueFromContext.count}
       <br />

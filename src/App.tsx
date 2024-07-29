@@ -5,6 +5,7 @@ import ErrorPage from './pages/error-page';
 import DetailsPage from './pages/details-page';
 import { FavoriteContext } from './contexts/favorite-context';
 import { useState } from 'react';
+import { InputSearchContext } from './contexts/search-context';
 
 const router = createBrowserRouter([
   {
@@ -20,9 +21,12 @@ const router = createBrowserRouter([
 
 function App() {
   const [count, setCount] = useState(0);
+  const [keywords, setKeywords] = useState('');
   return (
     <FavoriteContext.Provider value={{ count, setCount }}>
-      <RouterProvider router={router} />
+      <InputSearchContext.Provider value={{ keywords, setKeywords }}>
+        <RouterProvider router={router} />
+      </InputSearchContext.Provider>
     </FavoriteContext.Provider>
   );
 }
