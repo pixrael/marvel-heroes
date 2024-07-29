@@ -1,12 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FavoriteContext } from '../contexts/favorite-context';
 import { Link } from 'react-router-dom';
 import Header from '../components/header/header';
 import SearchCharacter from '../components/search-character/search-character';
+import { useCharacters } from '../hooks/useCharacters';
 
 function CharacterListPage() {
   /* const myValueFromContext = useContext(FavoriteContext); */
   console.log('CHARACTERLIST PAGE');
+
+  const { user, isLoading, isError } = useCharacters();
+
+  useEffect(() => {
+    console.log('RESPONSE ', user, isLoading, isError);
+  }, [user, isLoading, isError]);
+
   return (
     <>
       <Header />
