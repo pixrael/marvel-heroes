@@ -159,6 +159,12 @@ h6 {
   }
 }
 
+.searchcontainer {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000;
+}
+
 /* || ELEMENTS */
 .favcounter__text {
   margin-left: 9px;
@@ -166,6 +172,34 @@ h6 {
   font-size: 16px;
   font-weight: 400;
   color: #ffffff;
+}
+
+.iconbtn__img {
+  width: 12px;
+}
+
+.searchcontainer__searchinput {
+  margin-left: 3.5px;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 16px;
+  flex-grow: 1;
+  color: #000;
+
+  font-family: 'Roboto Condensed';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
+  text-align: left;
+
+  &::placeholder {
+    color: #aaaaaa;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 /* || MODIFIERS */
