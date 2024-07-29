@@ -75,6 +75,7 @@ h6 {
   --HEADER-HEIGHT: 84px;
   --HEADER-PADDINGLEFT: 48px;
   --HEADER-PADDINGRIGHT: 48px;
+  --HEADER-MINWIDTH: 393px;
 }
 
 /* || UTILITY CLASSES */
@@ -109,6 +110,7 @@ h6 {
   justify-content: space-between;
   padding-left: var(--HEADER-PADDINGLEFT);
   padding-right: var(--HEADER-PADDINGRIGHT);
+  min-width: var(--HEADER-MINWIDTH);
 }
 
 .favcounter {

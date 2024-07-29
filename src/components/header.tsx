@@ -1,14 +1,13 @@
-import './header.scss';
 import marvelLogo from '../assets/imgs/Marvel logo.svg';
 import iconHeart from '../assets/imgs/iconHeart.svg';
 
 function Header() {
   const handleLogoClick = () => {
-    // console.log('HELLO'); TODO
+    // console.log('logo clicked'); TODO
   };
 
   const handleFavoriteClick = () => {
-    //setCount(count + 1);
+    // console.log('show favorites'); TODO
   };
 
   return (
