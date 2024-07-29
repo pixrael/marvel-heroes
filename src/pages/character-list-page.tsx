@@ -5,15 +5,15 @@ import Header from '../components/header/header';
 import SearchCharacter from '../components/search-character/search-character';
 
 function CharacterListPage() {
-  const myValueFromContext = useContext(FavoriteContext);
+  /* const myValueFromContext = useContext(FavoriteContext); */
   console.log('CHARACTERLIST PAGE');
   return (
     <>
       <Header />
-      {/* <div className="bodypage">
+      <div className="bodypage">
         <SearchCharacter />
       </div>
-      Character List page!! {myValueFromContext.count}
+      {/*       Character List page!! {myValueFromContext.count}
       <br />
       <button
         onClick={() => {
