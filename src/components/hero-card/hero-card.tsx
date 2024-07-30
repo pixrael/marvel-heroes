@@ -1,18 +1,17 @@
 import iconHeart from '../../assets/imgs/iconHeart.svg';
 import spider_delete from '../../assets/imgs/spider_delete.png';
-import './hero-card.scss';
 
 function HeroCard() {
   return (
-    <div className="hero-card">
-      <div className="hero-card__action-area">
+    <div className="herocard">
+      <div className="herocard__action-area">
         <img
-          className="hero-card__media"
+          className="herocard__media"
           src={spider_delete}
           alt="green iguana"
         />
-        <div className="hero-card__content">
-          <h5 className="hero-card__title">Name</h5>
+        <div className="herocard__content">
+          <h5 className="herocard__title">Name</h5>
           <button className="iconbtn iconbtn--small" onClick={() => {}}>
             <img src={iconHeart} alt="Heart icon" />
           </button>
