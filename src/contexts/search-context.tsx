@@ -15,8 +15,14 @@ interface InputSearchContextType {
       data: any;
     }>
   >;
-  isLoading: boolean;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  requestData: {
+    error: any;
+    isLoading: boolean;
+  };
+  setRequestData: Dispatch<{
+    error: any;
+    isLoading: boolean;
+  }>;
 }
 
 export const InputSearchContext = createContext<InputSearchContextType>({
@@ -29,6 +35,9 @@ export const InputSearchContext = createContext<InputSearchContextType>({
     data: null,
   },
   setResults: () => '',
-  isLoading: false,
-  setIsLoading: () => false,
+  requestData: {
+    error: null,
+    isLoading: false,
+  },
+  setRequestData: () => false,
 });

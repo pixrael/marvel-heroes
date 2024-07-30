@@ -2,10 +2,11 @@ import { useContext, useEffect } from 'react';
 import { useCharacters } from '../../hooks/useCharacters';
 import { InputSearchContext } from '../../contexts/search-context';
 import HeroCardGrid from '../hero-card-grid/hero-card-grid';
+import Loading from '../loading/loading';
 
 function HeroList({ heroToSearch }: { heroToSearch?: string }) {
-  const { data, isLoading, isError } = useCharacters(heroToSearch);
-  const { setResults, setIsLoading } = useContext(InputSearchContext);
+  const { data, isLoading, error } = useCharacters(heroToSearch);
+  const { setResults, setRequestData } = useContext(InputSearchContext);
 
   useEffect(() => {
     if (data && data.count) {
@@ -16,8 +17,11 @@ function HeroList({ heroToSearch }: { heroToSearch?: string }) {
       setResults(result);
     }
 
-    setIsLoading(isLoading);
-  }, [data, setResults, isLoading, setIsLoading]);
+    setRequestData({
+      error,
+      isLoading,
+    });
+  }, [data, setResults, isLoading, error, setRequestData]);
 
   return (
     <>
@@ -34,11 +38,10 @@ function HeroList({ heroToSearch }: { heroToSearch?: string }) {
               }
             )}
           />
-          ;
         </>
       )}
-      {isLoading && <>Loading list of heros...</>}
-      {isError && <>Error loading list</>}
+      {isLoading && <Loading />}
+      {error && <>Error loading list</>}
     </>
   );
 }

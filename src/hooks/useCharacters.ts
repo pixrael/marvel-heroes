@@ -22,6 +22,6 @@ export const useCharacters = (heroToSearch?: string) => {
   return {
     data: data?.data,
     isLoading,
-    isError: error,
+    error: error,
   };
 };

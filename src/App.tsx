@@ -27,7 +27,10 @@ function App() {
     nResults: 0,
     data: null,
   });
-  const [isLoading, setIsLoading] = useState(false);
+  const [requestData, setRequestData] = useState({
+    error: null,
+    isLoading: false,
+  });
   return (
     <FavoriteContext.Provider value={{ count, setCount }}>
       <InputSearchContext.Provider
@@ -38,8 +41,8 @@ function App() {
           setDebounceKeywords,
           results: searchResults,
           setResults: setSearchResults,
-          isLoading,
-          setIsLoading,
+          requestData,
+          setRequestData,
         }}
       >
         <RouterProvider router={router} />
