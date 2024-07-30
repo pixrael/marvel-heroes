@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useCharacters } from '../../hooks/useCharacters';
 import { InputSearchContext } from '../../contexts/search-context';
-/* import HeroCard from '../hero-card/hero-card'; */
+import HeroCardGrid from '../hero-card-grid/hero-card-grid';
 
 function HeroList({ heroToSearch }: { heroToSearch?: string }) {
   const { data, isLoading, isError } = useCharacters(heroToSearch);
@@ -23,17 +23,20 @@ function HeroList({ heroToSearch }: { heroToSearch?: string }) {
     <>
       {data?.results && (
         <>
-          {data.results.map((characterData: any) => {
-            return (
-              <div key={characterData.id}>
-                {characterData.name}
-                <br />
-              </div>
-            );
-          })}
+          <HeroCardGrid
+            heroes={data.results.map(
+              ({ id, name, thumbnail: { path, extension } }: any) => {
+                return {
+                  id,
+                  name,
+                  img: `${path}.${extension}`,
+                };
+              }
+            )}
+          />
+          ;
         </>
       )}
-      {/* <HeroCard /> */}
       {isLoading && <>Loading list of heros...</>}
       {isError && <>Error loading list</>}
     </>

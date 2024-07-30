@@ -1,0 +1,29 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(172.5px, 1fr));
+  gap: 16px;
+  padding: 0;
+
+  &__item {
+    width: 172.5px;
+    height: auto;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* to avoid display only one image on every row */
+@media (min-width: 393px) and (max-width: 456px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+
+    &__item {
+      width: 172.5px;
+    }
+  }
+}

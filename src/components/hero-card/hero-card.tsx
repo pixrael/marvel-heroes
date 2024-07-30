@@ -1,18 +1,26 @@
 import iconHeart from '../../assets/imgs/iconHeart.svg';
-import spider_delete from '../../assets/imgs/spider_delete.png';
 
-function HeroCard() {
+function HeroCard({
+  id,
+  name,
+  img,
+}: {
+  id: number;
+  name: string;
+  img: string;
+}) {
   return (
     <div className="herocard">
       <div className="herocard__action-area">
-        <img
-          className="herocard__media"
-          src={spider_delete}
-          alt="green iguana"
-        />
+        <img className="herocard__media" src={img} alt="green iguana" />
         <div className="herocard__content">
-          <h5 className="herocard__title">Name</h5>
-          <button className="iconbtn iconbtn--small" onClick={() => {}}>
+          <h5 className="herocard__title">{name}</h5>
+          <button
+            className="iconbtn iconbtn--small"
+            onClick={() => {
+              console.log(`clicked ${id}`);
+            }}
+          >
             <img src={iconHeart} alt="Heart icon" />
           </button>
         </div>
