@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useCharacters } from '../../hooks/useCharacters';
 import { InputSearchContext } from '../../contexts/search-context';
+/* import HeroCard from '../hero-card/hero-card'; */
 
 function HeroList({ heroToSearch }: { heroToSearch?: string }) {
   const { data, isLoading, isError } = useCharacters(heroToSearch);
@@ -32,6 +33,7 @@ function HeroList({ heroToSearch }: { heroToSearch?: string }) {
           })}
         </>
       )}
+      {/* <HeroCard /> */}
       {isLoading && <>Loading list of heros...</>}
       {isError && <>Error loading list</>}
     </>
