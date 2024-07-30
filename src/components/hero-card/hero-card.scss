@@ -1,47 +1,38 @@
-// styles.scss
-
-.card {
-  position: relative; // Ensure the card is a positioned element
+.hero-card {
+  position: relative;
   max-width: 172.5px;
-  /* border: 1px solid #ddd; */
   overflow: hidden;
   width: 172.5px;
   height: 245.97px;
 
-  .card-action-area {
+  &__action-area {
     display: block;
     text-decoration: none;
     color: inherit;
     background: #000000;
   }
 
-  .card-media {
+  &__media {
     width: 100%;
     height: 189.97px;
     object-fit: cover;
   }
 
-  .card-content {
+  &__content {
     padding: 16px;
     border-top: 5.38px solid red;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
 
-    .card-title {
-      font-family: 'Roboto Condensed';
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 16.41px;
-      text-align: left;
-      color: #ffffff;
-    }
-
-    .card-description {
-      margin: 0;
-      font-size: 0.875rem;
-      color: #666;
-    }
+  &__title {
+    font-family: 'Roboto Condensed';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    color: #ffffff;
   }
 
   // Pseudo-element for corner cut image
