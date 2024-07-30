@@ -1,9 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import iconAmplifier from '../../assets/imgs/amplifier button.svg';
 import { InputSearchContext } from '../../contexts/search-context';
+import debounce from 'lodash.debounce';
 
 function SearchCharacter() {
-  const { keywords, setKeywords } = useContext(InputSearchContext);
+  const { keywords, setKeywords, setDebounceKeywords } =
+    useContext(InputSearchContext);
+  //const [debounceKeywords, setDebounceKeywords] = useState('');
+
+  const debounceFunc = useMemo(
+    () =>
+      debounce((event: React.ChangeEvent<HTMLInputElement>) => {
+        setDebounceKeywords(event.target.value);
+      }, 300),
+    [setDebounceKeywords]
+  );
 
   const handleAmplifierClick = () => {
     console.log('search for ', keywords);
@@ -14,7 +25,10 @@ function SearchCharacter() {
     }
   };
 
-  const updateKeywords = (e) => setKeywords(e?.target?.value);
+  const updateKeywords = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setKeywords(e?.target?.value);
+    debounceFunc(e);
+  };
 
   return (
     <div className="searchcontainer">
@@ -31,7 +45,10 @@ function SearchCharacter() {
           value={keywords}
         />
       </div>
-      <p className="searchcontainer__numresults">20 results {keywords}</p>
+      {/* <p className="searchcontainer__numresults">20 results {keywords}</p>
+      <p className="searchcontainer__numresults">
+        debounce: {debounceKeywords}
+      </p> */}
     </div>
   );
 }

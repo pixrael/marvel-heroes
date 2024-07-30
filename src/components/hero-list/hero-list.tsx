@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
 import { useCharacters } from '../../hooks/useCharacters';
 
-function HeroList({ fetchParams }: { fetchParams?: string }) {
-  const { data, isLoading, isError } = useCharacters(fetchParams);
-
-  useEffect(() => {}, [data, isLoading, isError]);
+function HeroList({ heroToSearch }: { heroToSearch?: string }) {
+  const { data, isLoading, isError } = useCharacters(heroToSearch);
 
   return (
     <>
       List of heros:
+      <br />
+      keywordsToSearch:
       <br />
       {data?.results && (
         <>

@@ -22,9 +22,12 @@ const router = createBrowserRouter([
 function App() {
   const [count, setCount] = useState(0);
   const [keywords, setKeywords] = useState('');
+  const [debounceKeywords, setDebounceKeywords] = useState('');
   return (
     <FavoriteContext.Provider value={{ count, setCount }}>
-      <InputSearchContext.Provider value={{ keywords, setKeywords }}>
+      <InputSearchContext.Provider
+        value={{ keywords, setKeywords, debounceKeywords, setDebounceKeywords }}
+      >
         <RouterProvider router={router} />
       </InputSearchContext.Provider>
     </FavoriteContext.Provider>
