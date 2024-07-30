@@ -23,10 +23,24 @@ function App() {
   const [count, setCount] = useState(0);
   const [keywords, setKeywords] = useState('');
   const [debounceKeywords, setDebounceKeywords] = useState('');
+  const [searchResults, setSearchResults] = useState({
+    nResults: 0,
+    data: null,
+  });
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <FavoriteContext.Provider value={{ count, setCount }}>
       <InputSearchContext.Provider
-        value={{ keywords, setKeywords, debounceKeywords, setDebounceKeywords }}
+        value={{
+          keywords,
+          setKeywords,
+          debounceKeywords,
+          setDebounceKeywords,
+          results: searchResults,
+          setResults: setSearchResults,
+          isLoading,
+          setIsLoading,
+        }}
       >
         <RouterProvider router={router} />
       </InputSearchContext.Provider>

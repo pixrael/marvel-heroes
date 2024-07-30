@@ -1,14 +1,25 @@
+import { useContext, useEffect } from 'react';
 import { useCharacters } from '../../hooks/useCharacters';
+import { InputSearchContext } from '../../contexts/search-context';
 
 function HeroList({ heroToSearch }: { heroToSearch?: string }) {
   const { data, isLoading, isError } = useCharacters(heroToSearch);
+  const { setResults, setIsLoading } = useContext(InputSearchContext);
+
+  useEffect(() => {
+    if (data && data.count) {
+      const result = {
+        nResults: data.count,
+        data: data.results,
+      };
+      setResults(result);
+    }
+
+    setIsLoading(isLoading);
+  }, [data, setResults, isLoading, setIsLoading]);
 
   return (
     <>
-      List of heros:
-      <br />
-      keywordsToSearch:
-      <br />
       {data?.results && (
         <>
           {data.results.map((characterData: any) => {

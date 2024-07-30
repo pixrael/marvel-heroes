@@ -4,7 +4,7 @@ import { InputSearchContext } from '../../contexts/search-context';
 import debounce from 'lodash.debounce';
 
 function SearchCharacter() {
-  const { keywords, setKeywords, setDebounceKeywords } =
+  const { keywords, setKeywords, setDebounceKeywords, results, isLoading } =
     useContext(InputSearchContext);
 
   const debounceFunc = useMemo(
@@ -34,6 +34,11 @@ function SearchCharacter() {
           value={keywords}
         />
       </div>
+      {!isLoading && results && results.nResults && (
+        <p className="searchcontainer__numresults">
+          {results.nResults} results
+        </p>
+      )}
     </div>
   );
 }
