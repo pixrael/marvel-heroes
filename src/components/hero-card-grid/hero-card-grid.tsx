@@ -3,6 +3,7 @@ import HeroCard from '../hero-card/hero-card';
 import { FavoriteContext } from '../../contexts/favorite-context';
 import Grid from '../grid/grid';
 import GridItem from '../grid/grid-item';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function HeroCardGrid({
   heroes,
@@ -14,6 +15,7 @@ function HeroCardGrid({
   }[];
 }) {
   const { favoriteIds, setFavoriteIds } = useContext(FavoriteContext);
+  const navigate = useNavigate();
 
   const handleFavoriteClick = (id: number) => {
     const already = favoriteIds.some((v) => v === id);
@@ -26,6 +28,10 @@ function HeroCardGrid({
     }
   };
 
+  const handleCardClick = (id: number) => {
+    navigate(`/details/${id}`);
+  };
+
   return (
     <Grid>
       {heroes.map(({ id, name, img }) => (
@@ -36,6 +42,7 @@ function HeroCardGrid({
             img={img}
             isSelected={favoriteIds.some((favId) => favId === id)}
             handleFavoriteClick={handleFavoriteClick}
+            handleCardClick={handleCardClick}
           />
         </GridItem>
       ))}

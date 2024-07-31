@@ -15,7 +15,8 @@ export const useCharacters = (heroToSearch?: string) => {
   let resUrl = '';
   if (heroToSearch) {
     resUrl = `${url}/${resource}?nameStartsWith=${heroToSearch}&ts=${ts}&apikey=${apikey}&hash=${md5}`;
-  } else resUrl = `${url}/${resource}?ts=${ts}&apikey=${apikey}&hash=${md5}`;
+  } else
+    resUrl = `${url}/${resource}?limit=5&ts=${ts}&apikey=${apikey}&hash=${md5}`; //resUrl = `${url}/${resource}?limit=50&ts=${ts}&apikey=${apikey}&hash=${md5}`;
 
   const { data, error, isLoading } = useSWR(resUrl, fetcher);
 

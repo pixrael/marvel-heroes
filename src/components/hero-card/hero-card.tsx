@@ -6,22 +6,24 @@ function HeroCard({
   img,
   isSelected,
   handleFavoriteClick,
+  handleCardClick,
 }: {
   id: number;
   name: string;
   img: string;
   isSelected: boolean;
   handleFavoriteClick: (id: number) => void;
+  handleCardClick: (id: number) => void;
 }) {
   return (
-    <div className="herocard">
+    <div className="herocard" onClick={() => handleCardClick(id)}>
       <img className="herocard__media" src={img} alt="marvel image" />
       <div className="herocard__content">
         <h5 className="herocard__title">{name}</h5>
         <button
           className="iconbtn iconbtn--smaller"
-          onClick={() => {
-            console.log(`clicked ${id}`);
+          onClick={(event) => {
+            event.stopPropagation();
             handleFavoriteClick(id);
           }}
         >
