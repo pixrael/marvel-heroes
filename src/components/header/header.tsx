@@ -1,5 +1,7 @@
+import { useContext, useEffect } from 'react';
 import marvelLogo from '../../assets/imgs/Marvel logo.svg';
 import './header.scss';
+import { FavoriteContext } from '../../contexts/favorite-context';
 
 function Header() {
   const handleLogoClick = () => {
@@ -10,6 +12,12 @@ function Header() {
     console.log('show favorites');
     //TODO;
   };
+
+  const { favoriteIds } = useContext(FavoriteContext);
+
+  useEffect(() => {
+    console.log(favoriteIds);
+  }, [favoriteIds]);
 
   return (
     <header className="header">
@@ -23,7 +31,7 @@ function Header() {
         >
           <span className="hearticon"></span>
         </button>
-        <span className="favcounter__text">3</span>
+        <span className="favcounter__text">{favoriteIds.length}</span>
       </div>
     </header>
   );

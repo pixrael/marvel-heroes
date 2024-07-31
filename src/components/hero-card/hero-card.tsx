@@ -4,10 +4,12 @@ function HeroCard({
   id,
   name,
   img,
+  handleFavoriteClick,
 }: {
   id: number;
   name: string;
   img: string;
+  handleFavoriteClick: (id: number) => void;
 }) {
   return (
     <div className="herocard">
@@ -18,6 +20,7 @@ function HeroCard({
           className="iconbtn iconbtn--smaller"
           onClick={() => {
             console.log(`clicked ${id}`);
+            handleFavoriteClick(id);
           }}
         >
           <span className="hearticon"></span>

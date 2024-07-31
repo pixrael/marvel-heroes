@@ -21,6 +21,8 @@ const router = createBrowserRouter([
 
 function App() {
   const [count, setCount] = useState(0);
+  const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
+
   const [keywords, setKeywords] = useState('');
   const [debounceKeywords, setDebounceKeywords] = useState('');
   const [searchResults, setSearchResults] = useState({
@@ -32,7 +34,9 @@ function App() {
     isLoading: false,
   });
   return (
-    <FavoriteContext.Provider value={{ count, setCount }}>
+    <FavoriteContext.Provider
+      value={{ count, setCount, favoriteIds, setFavoriteIds }}
+    >
       <InputSearchContext.Provider
         value={{
           keywords,
