@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import HeroCard from '../hero-card/hero-card';
-import './hero-card-grid.scss';
 import { FavoriteContext } from '../../contexts/favorite-context';
+import Grid from '../grid/grid';
+import GridItem from '../grid/grid-item';
 
 function HeroCardGrid({
   heroes,
@@ -26,9 +27,9 @@ function HeroCardGrid({
   };
 
   return (
-    <div className="grid">
+    <Grid>
       {heroes.map(({ id, name, img }) => (
-        <div key={id} className="grid__item">
+        <GridItem key={id} id={id}>
           <HeroCard
             id={id}
             name={name}
@@ -36,9 +37,9 @@ function HeroCardGrid({
             isSelected={favoriteIds.some((favId) => favId === id)}
             handleFavoriteClick={handleFavoriteClick}
           />
-        </div>
+        </GridItem>
       ))}
-    </div>
+    </Grid>
   );
 }
 
