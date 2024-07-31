@@ -1,5 +1,3 @@
-import iconHeart from '../../assets/imgs/iconHeart.svg';
-
 function HeroCard({
   id,
   name,
@@ -16,12 +14,12 @@ function HeroCard({
         <div className="herocard__content">
           <h5 className="herocard__title">{name}</h5>
           <button
-            className="iconbtn iconbtn--small"
+            className="iconbtn iconbtn--smaller"
             onClick={() => {
               console.log(`clicked ${id}`);
             }}
           >
-            <img src={iconHeart} alt="Heart icon" />
+            <span className="hearticon"></span>
           </button>
         </div>
       </div>

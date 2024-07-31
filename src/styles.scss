@@ -110,6 +110,27 @@ h6 {
   padding: 0;
 }
 
+.amplifiericon {
+  width: 100%;
+  height: 100%;
+  background: url('./assets/imgs/amplifier\ button.svg') no-repeat;
+  background-size: contain; // Ensure the image fits the containe
+}
+
+.hearticon {
+  width: 100%;
+  height: 100%;
+  background: url('./assets/imgs/iconHeart.svg') no-repeat;
+  background-size: contain; // Ensure the image fits the containe
+}
+
+.heartlineicon {
+  width: 100%;
+  height: 100%;
+  background: url('./assets/imgs/iconHeartLine.svg') no-repeat;
+  background-size: contain;
+}
+
 .header {
   align-items: center;
   background-color: var(--HEADER-BGCOLOR);
@@ -182,8 +203,19 @@ h6 {
   color: #ffffff;
 }
 
-.iconbtn__img {
+.iconbtn--medium {
+  width: 24px;
+  height: 21.68px;
+}
+
+.iconbtn--small {
   width: 12px;
+  height: 12px;
+}
+
+.iconbtn--smaller {
+  width: 12px;
+  height: 10.84px;
 }
 
 .search__searchinput {
@@ -262,7 +294,3 @@ h6 {
 }
 
 /* || MODIFIERS */
-.iconbtn--small {
-  width: 12px;
-  height: 10.84px;
-}

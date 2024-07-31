@@ -7,7 +7,8 @@ function Header() {
   };
 
   const handleFavoriteClick = () => {
-    // console.log('show favorites'); TODO
+    console.log('show favorites');
+    //TODO;
   };
 
   return (
@@ -16,8 +17,11 @@ function Header() {
         <img src={marvelLogo} />
       </div>
       <div className="favcounter">
-        <button className="iconbtn" onClick={handleFavoriteClick}>
-          <img src={iconHeart} />
+        <button
+          className="iconbtn iconbtn--medium"
+          onClick={handleFavoriteClick}
+        >
+          <span className="hearticon"></span>
         </button>
         <span className="favcounter__text">3</span>
       </div>

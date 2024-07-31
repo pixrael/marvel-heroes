@@ -28,8 +28,8 @@ function SearchCharacter() {
   return (
     <div className="searchcontainer">
       <div className="search">
-        <button className="iconbtn">
-          <img className="iconbtn__img" src={iconAmplifier} />
+        <button className="iconbtn iconbtn--small">
+          <span className="amplifiericon "></span>
         </button>
         <input
           type="text"
