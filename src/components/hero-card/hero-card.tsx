@@ -4,11 +4,13 @@ function HeroCard({
   id,
   name,
   img,
+  isSelected,
   handleFavoriteClick,
 }: {
   id: number;
   name: string;
   img: string;
+  isSelected: boolean;
   handleFavoriteClick: (id: number) => void;
 }) {
   return (
@@ -23,7 +25,7 @@ function HeroCard({
             handleFavoriteClick(id);
           }}
         >
-          <span className="hearticon"></span>
+          <span className={isSelected ? 'heartlineicon' : 'hearticon'}></span>
         </button>
       </div>
       <div className="corner"></div>

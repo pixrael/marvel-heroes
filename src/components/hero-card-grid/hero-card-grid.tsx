@@ -33,6 +33,7 @@ function HeroCardGrid({
             id={id}
             name={name}
             img={img}
+            isSelected={favoriteIds.some((favId) => favId === id)}
             handleFavoriteClick={handleFavoriteClick}
           />
         </div>
