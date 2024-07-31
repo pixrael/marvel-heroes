@@ -6,12 +6,17 @@ import DetailsPage from './pages/details-page';
 import { FavoriteContext } from './contexts/favorite-context';
 import { useState } from 'react';
 import { InputSearchContext } from './contexts/search-context';
+import FavoritesPage from './pages/favorites-page';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <CharacterListPage />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: 'favorites',
+    element: <FavoritesPage />,
   },
   {
     path: 'details/:heroId',

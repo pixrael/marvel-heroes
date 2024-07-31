@@ -2,15 +2,22 @@ import { useContext, useEffect } from 'react';
 import marvelLogo from '../../assets/imgs/Marvel logo.svg';
 import './header.scss';
 import { FavoriteContext } from '../../contexts/favorite-context';
+import { useNavigate } from 'react-router-dom';
 
-function Header() {
+function Header({
+  logoInteractive = true,
+  favoriteInteractive = true,
+}: {
+  logoInteractive?: boolean;
+  favoriteInteractive?: boolean;
+}) {
+  const navigate = useNavigate();
   const handleLogoClick = () => {
-    // console.log('logo clicked'); TODO
+    if (logoInteractive) navigate(`/`);
   };
 
   const handleFavoriteClick = () => {
-    console.log('show favorites');
-    //TODO;
+    if (favoriteInteractive) navigate(`/favorites`);
   };
 
   const { favoriteIds } = useContext(FavoriteContext);
@@ -21,7 +28,10 @@ function Header() {
 
   return (
     <header className="header">
-      <div className="logo" onClick={handleLogoClick}>
+      <div
+        className={`logo ${logoInteractive ? 'clickeable' : ''}`}
+        onClick={handleLogoClick}
+      >
         <img src={marvelLogo} />
       </div>
       <div className="favcounter">
