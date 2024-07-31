@@ -92,14 +92,6 @@ h6 {
 }
 
 /* || BLOCKS */
-.logo {
-  background: none;
-  border: none;
-  height: 52px;
-  padding: 0;
-  width: 130px;
-}
-
 .iconbtn {
   align-items: center;
   background: none;
@@ -131,38 +123,6 @@ h6 {
   background-size: contain;
 }
 
-.header {
-  align-items: center;
-  background-color: var(--HEADER-BGCOLOR);
-  display: flex;
-  height: var(--HEADER-HEIGHT);
-  justify-content: space-between;
-  min-width: var(--HEADER-MINWIDTH);
-  padding-left: var(--HEADER-PADDINGLEFT);
-  padding-right: var(--HEADER-PADDINGRIGHT);
-}
-
-@media (width <= 393px) {
-  .header {
-    align-items: center;
-    background-color: var(--HEADER-BGCOLOR);
-    display: flex;
-    height: var(--HEADER-HEIGHT);
-    justify-content: space-between;
-    padding-left: 8px;
-    padding-right: 8px;
-    width: 100%;
-  }
-}
-
-.favcounter {
-  align-items: center;
-  display: flex;
-  height: 37.68px;
-  padding-left: 8px;
-  width: 56px;
-}
-
 .bodypage {
   width: 100%;
   padding-left: 48px;
@@ -180,29 +140,7 @@ h6 {
   }
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #000;
-}
-
-.herocard {
-  position: relative;
-  max-width: 172.5px;
-  overflow: hidden;
-  width: 172.5px;
-  height: 245.97px;
-}
-
 /* || ELEMENTS */
-.favcounter__text {
-  margin-left: 9px;
-  font-family: 'Roboto Condensed';
-  font-size: 16px;
-  font-weight: 400;
-  color: #ffffff;
-}
-
 .iconbtn--medium {
   width: 24px;
   height: 21.68px;
@@ -216,81 +154,6 @@ h6 {
 .iconbtn--smaller {
   width: 12px;
   height: 10.84px;
-}
-
-.search__searchinput {
-  margin-left: 3.5px;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 16px;
-  flex-grow: 1;
-  color: #000;
-
-  font-family: 'Roboto Condensed';
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 18.75px;
-  text-align: left;
-
-  &::placeholder {
-    color: #aaaaaa;
-  }
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.searchcontainer__numresults {
-  margin-top: 12px;
-  font-family: 'Roboto Condensed';
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 14.06px;
-  text-align: left;
-}
-
-.herocard__action-area {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: #000000;
-}
-
-.herocard__media {
-  width: 100%;
-  height: 189.97px;
-}
-
-.herocard__content {
-  height: 56px;
-  padding: 16px;
-  border-top: 5.38px solid red;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.herocard__title {
-  font-family: 'Roboto Condensed';
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16.41px;
-  text-align: left;
-  color: #ffffff;
-}
-
-// Pseudo-element for corner cut image
-.herocard::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: -0.1px;
-  width: 12.86px;
-  height: 12.86px;
-  background: url('./assets/imgs/cornerCut.svg') no-repeat;
-  background-size: cover;
 }
 
 /* || MODIFIERS */

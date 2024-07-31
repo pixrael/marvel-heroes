@@ -1,5 +1,5 @@
 import { useContext, useMemo } from 'react';
-import iconAmplifier from '../../assets/imgs/amplifier button.svg';
+import './search-character.scss';
 import { InputSearchContext } from '../../contexts/search-context';
 import debounce from 'lodash.debounce';
 
@@ -26,7 +26,7 @@ function SearchCharacter() {
   };
 
   return (
-    <div className="searchcontainer">
+    <div>
       <div className="search">
         <button className="iconbtn iconbtn--small">
           <span className="amplifiericon "></span>
@@ -40,9 +40,7 @@ function SearchCharacter() {
         />
       </div>
       {!isLoading && !error && results && results.nResults && (
-        <p className="searchcontainer__numresults">
-          {results.nResults} results
-        </p>
+        <p className="searchnumresults">{results.nResults} results</p>
       )}
     </div>
   );
