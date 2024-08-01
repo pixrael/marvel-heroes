@@ -25,8 +25,28 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
+  const [favoriteIds, setFavoriteIds] = useState<
+    { id: number; data: any; requestData: any }[]
+  >([]);
+  const [favoritesData] = useState<any[]>([]);
+  const addFavoriteData = (newData) => {
+    let shouldUpdate = false;
+    const newFavoriteIds = favoriteIds.map((favId) => {
+      if (favId.id === newData.id && !favId.data) {
+        shouldUpdate = true;
+        return {
+          id: favId.id,
+          data: newData.data,
+          requestData: newData.requestData,
+        };
+      } else return favId;
+    });
+
+    if (shouldUpdate) {
+      console.log('making update');
+      setFavoriteIds(newFavoriteIds);
+    }
+  };
 
   const [keywords, setKeywords] = useState('');
   const [debounceKeywords, setDebounceKeywords] = useState('');
@@ -40,7 +60,12 @@ function App() {
   });
   return (
     <FavoriteContext.Provider
-      value={{ count, setCount, favoriteIds, setFavoriteIds }}
+      value={{
+        favoriteIds,
+        setFavoriteIds,
+        favoritesData,
+        addFavoriteData,
+      }}
     >
       <InputSearchContext.Provider
         value={{

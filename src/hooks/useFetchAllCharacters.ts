@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import useSWR from 'swr';
 
 type FetchArgs = Parameters<typeof fetch>;
@@ -5,7 +6,7 @@ const fetcher = (...args: FetchArgs): Promise<any> => {
   return fetch(...args).then((res) => res.json());
 };
 
-export const useCharacters = (heroToSearch?: string) => {
+export const useFetchAllCharacters = (heroToSearch?: string) => {
   const url = import.meta.env.VITE_REACT_API_MARVEL_URL;
   const resource = 'characters';
   const ts = '1';
@@ -19,6 +20,10 @@ export const useCharacters = (heroToSearch?: string) => {
     resUrl = `${url}/${resource}?limit=5&ts=${ts}&apikey=${apikey}&hash=${md5}`; //resUrl = `${url}/${resource}?limit=50&ts=${ts}&apikey=${apikey}&hash=${md5}`;
 
   const { data, error, isLoading } = useSWR(resUrl, fetcher);
+
+  useEffect(() => {
+    console.log('data CHECK ', data);
+  }, [data, error, isLoading]);
 
   return {
     data: data?.data,

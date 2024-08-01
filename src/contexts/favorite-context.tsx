@@ -1,15 +1,23 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
 
 interface FavoriteContextType {
-  count: number;
-  setCount: Dispatch<SetStateAction<number>>;
-  favoriteIds: number[];
-  setFavoriteIds: Dispatch<SetStateAction<number[]>>;
+  favoriteIds: { id: number; data: any; requestData: any }[];
+  setFavoriteIds: Dispatch<
+    SetStateAction<{ id: number; data: any; requestData: any }[]>
+  >;
+  favoritesData: {
+    data: any;
+    requestData: {
+      error: any;
+      isLoading: boolean;
+    };
+  }[];
+  addFavoriteData: (newData) => void;
 }
 
 export const FavoriteContext = createContext<FavoriteContextType>({
-  count: 0,
-  setCount: () => 0,
   favoriteIds: [],
   setFavoriteIds: () => [],
+  favoritesData: [],
+  addFavoriteData: (newData) => {},
 });
