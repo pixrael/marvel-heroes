@@ -4,9 +4,10 @@ import CharacterListPage from './pages/character-list-page';
 import ErrorPage from './pages/error-page';
 import DetailsPage from './pages/details-page';
 import { FavoriteContext } from './contexts/favorite-context';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { InputSearchContext } from './contexts/search-context';
 import FavoritesPage from './pages/favorites-page';
+import { DataFavoriteContext } from './contexts/data-favorite-context';
 
 const router = createBrowserRouter([
   {
@@ -25,49 +26,8 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [favoriteIds, setFavoriteIds] = useState<
-    { id: number; data: any; requestData: any }[]
-  >([]);
-  const [favoritesData] = useState<any[]>([]);
-  const addFavoriteData = (newData) => {
-    let shouldUpdate = false;
-    const newFavoriteIds = favoriteIds.map((favId) => {
-      if (favId.id === newData.id && !favId.data) {
-        shouldUpdate = true;
-        return {
-          id: favId.id,
-          data: newData.data,
-          requestData: newData.requestData,
-        };
-      } else return favId;
-    });
-
-    if (shouldUpdate) {
-      console.log('making update');
-      setFavoriteIds(newFavoriteIds);
-    }
-  };
-
-  const updateRequestFavoriteData = (id, error, isLoading) => {
-    let shouldUpdate = false;
-    const newFavoriteIds = favoriteIds.map((favId) => {
-      if (
-        favId.id === id &&
-        (error !== favId.requestData.error ||
-          isLoading !== favId.requestData.isLoading)
-      ) {
-        shouldUpdate = true;
-        return {
-          ...favId,
-          requestData: { error, isLoading },
-        };
-      } else return favId;
-    });
-
-    if (shouldUpdate) {
-      setFavoriteIds(newFavoriteIds);
-    }
-  };
+  const dataRef = useRef<{ id: number; name: string; img: string }[]>([]);
+  const [favoriteIdList, setFavoriteIdList] = useState<number[]>([]);
 
   const [keywords, setKeywords] = useState('');
   const [debounceKeywords, setDebounceKeywords] = useState('');
@@ -79,31 +39,31 @@ function App() {
     error: null,
     isLoading: false,
   });
+
   return (
-    <FavoriteContext.Provider
-      value={{
-        favoriteIds,
-        setFavoriteIds,
-        favoritesData,
-        addFavoriteData,
-        updateRequestFavoriteData,
-      }}
-    >
-      <InputSearchContext.Provider
+    <DataFavoriteContext.Provider value={dataRef}>
+      <FavoriteContext.Provider
         value={{
-          keywords,
-          setKeywords,
-          debounceKeywords,
-          setDebounceKeywords,
-          results: searchResults,
-          setResults: setSearchResults,
-          requestData,
-          setRequestData,
+          favoriteIdList,
+          setFavoriteIdList,
         }}
       >
-        <RouterProvider router={router} />
-      </InputSearchContext.Provider>
-    </FavoriteContext.Provider>
+        <InputSearchContext.Provider
+          value={{
+            keywords,
+            setKeywords,
+            debounceKeywords,
+            setDebounceKeywords,
+            results: searchResults,
+            setResults: setSearchResults,
+            requestData,
+            setRequestData,
+          }}
+        >
+          <RouterProvider router={router} />
+        </InputSearchContext.Provider>
+      </FavoriteContext.Provider>
+    </DataFavoriteContext.Provider>
   );
 }
 

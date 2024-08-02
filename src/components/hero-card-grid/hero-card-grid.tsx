@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import HeroCard from '../hero-card/hero-card';
 import { FavoriteContext } from '../../contexts/favorite-context';
 import Grid from '../grid/grid';
 import GridItem from '../grid/grid-item';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import Loading from '../loading/loading';
+import CharacterCard from '../character-card/character-card';
 
 export interface HERO {
   id: number;
@@ -16,46 +16,21 @@ export interface HERO {
 }
 
 function HeroCardGrid({ heroes }: { heroes: HERO[] }) {
-  const { favoriteIds, setFavoriteIds } = useContext(FavoriteContext);
-  const navigate = useNavigate();
-
-  const handleFavoriteClick = (id: number) => {
-    const already = favoriteIds.some((v) => v.id === id);
-
-    if (already) {
-      const newFavoriteIds = favoriteIds.filter((v) => v.id !== id);
-      setFavoriteIds(newFavoriteIds);
-    } else {
-      setFavoriteIds([
-        ...favoriteIds,
-        {
-          id,
-          data: undefined,
-          requestData: { error: undefined, isLoading: false },
-        },
-      ]);
-    }
-  };
-
-  const handleCardClick = (id: number) => {
-    navigate(`/details/${id}`);
-  };
+  const { favoriteIdList } = useContext(FavoriteContext);
 
   return (
     <Grid>
       {heroes.map(({ id, name, img, requestData: { error, isLoading } }) => (
         <GridItem key={id} id={id}>
           {!error && !isLoading && (
-            <HeroCard
+            <CharacterCard
               id={id}
               name={name}
               img={img}
-              isSelected={favoriteIds.some((favId) => favId.id === id)}
-              handleFavoriteClick={handleFavoriteClick}
-              handleCardClick={handleCardClick}
+              isSelected={favoriteIdList.some((favId) => favId === id)}
             />
           )}
-          {isLoading && <>Loading card</>}
+          {isLoading && <Loading />}
         </GridItem>
       ))}
     </Grid>

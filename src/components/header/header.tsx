@@ -20,11 +20,7 @@ function Header({
     if (favoriteInteractive) navigate(`/favorites`);
   };
 
-  const { favoriteIds } = useContext(FavoriteContext);
-
-  useEffect(() => {
-    console.log(favoriteIds);
-  }, [favoriteIds]);
+  const { favoriteIdList } = useContext(FavoriteContext);
 
   return (
     <header className="header">
@@ -41,7 +37,7 @@ function Header({
         >
           <span className="hearticon"></span>
         </button>
-        <span className="favcounter__text">{favoriteIds.length}</span>
+        <span className="favcounter__text">{favoriteIdList.length}</span>
       </div>
     </header>
   );
