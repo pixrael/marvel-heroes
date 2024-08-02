@@ -15,15 +15,22 @@ function FavoritesPage() {
     const results: any[] = [];
 
     favoriteIds.forEach((fid) => {
-      if (!fid.data) return;
-
-      const { id, name, thumbnail } = fid.data.results[0];
-      results.push({
-        id,
-        name,
-        thumbnail,
-        requestData: fid.requestData,
-      });
+      if (!fid.data) {
+        results.push({
+          id: fid.id,
+          name: '',
+          thumbnail: '',
+          requestData: fid.requestData,
+        });
+      } else {
+        const { id, name, thumbnail } = fid.data.results[0];
+        results.push({
+          id,
+          name,
+          thumbnail,
+          requestData: fid.requestData,
+        });
+      }
     });
 
     const characterData = {

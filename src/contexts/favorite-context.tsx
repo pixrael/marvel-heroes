@@ -13,6 +13,7 @@ interface FavoriteContextType {
     };
   }[];
   addFavoriteData: (newData) => void;
+  updateRequestFavoriteData: (id, error, isLoadingData) => void;
 }
 
 export const FavoriteContext = createContext<FavoriteContextType>({
@@ -20,4 +21,5 @@ export const FavoriteContext = createContext<FavoriteContextType>({
   setFavoriteIds: () => [],
   favoritesData: [],
   addFavoriteData: (newData) => {},
+  updateRequestFavoriteData: (id, error, isLoading) => {},
 });

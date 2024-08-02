@@ -4,6 +4,7 @@ import SearchCharacter from '../components/search-character/search-character';
 import HeroList from '../components/hero-list/hero-list';
 import { InputSearchContext } from '../contexts/search-context';
 import AllCharactersFetcher from '../components/fetchers/all-character-fetcher';
+import Loading from '../components/loading/loading';
 
 function CharacterListPage() {
   const {
@@ -35,7 +36,7 @@ function CharacterListPage() {
             }}
           />
         )}
-        {isLoading && <>is Loading...</>}
+        {isLoading && <Loading />}
       </div>
     </>
   );

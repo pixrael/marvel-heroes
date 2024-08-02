@@ -28,7 +28,11 @@ function HeroCardGrid({ heroes }: { heroes: HERO[] }) {
     } else {
       setFavoriteIds([
         ...favoriteIds,
-        { id, data: undefined, requestData: undefined },
+        {
+          id,
+          data: undefined,
+          requestData: { error: undefined, isLoading: false },
+        },
       ]);
     }
   };

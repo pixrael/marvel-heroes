@@ -48,6 +48,27 @@ function App() {
     }
   };
 
+  const updateRequestFavoriteData = (id, error, isLoading) => {
+    let shouldUpdate = false;
+    const newFavoriteIds = favoriteIds.map((favId) => {
+      if (
+        favId.id === id &&
+        (error !== favId.requestData.error ||
+          isLoading !== favId.requestData.isLoading)
+      ) {
+        shouldUpdate = true;
+        return {
+          ...favId,
+          requestData: { error, isLoading },
+        };
+      } else return favId;
+    });
+
+    if (shouldUpdate) {
+      setFavoriteIds(newFavoriteIds);
+    }
+  };
+
   const [keywords, setKeywords] = useState('');
   const [debounceKeywords, setDebounceKeywords] = useState('');
   const [searchResults, setSearchResults] = useState({
@@ -65,6 +86,7 @@ function App() {
         setFavoriteIds,
         favoritesData,
         addFavoriteData,
+        updateRequestFavoriteData,
       }}
     >
       <InputSearchContext.Provider
