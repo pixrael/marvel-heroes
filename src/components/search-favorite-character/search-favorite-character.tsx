@@ -1,7 +1,8 @@
-import { useContext, useEffect, useMemo } from 'react';
+/*TODO componetize like search-character */
+import { useContext, useMemo } from 'react';
+import './search-favorite-character.scss';
 import { InputSearchContext } from '../../contexts/search-context';
 import debounce from 'lodash.debounce';
-import SearchInput from '../search-input/search-input';
 
 function SearchCharacter() {
   const {
@@ -26,12 +27,23 @@ function SearchCharacter() {
   };
 
   return (
-    <SearchInput
-      value={keywords}
-      showResults={true}
-      handleChange={updateKeywords}
-      nResults={results.nResults}
-    />
+    <div>
+      <div className="search">
+        <button className="iconbtn iconbtn--small">
+          <span className="amplifiericon "></span>
+        </button>
+        <input
+          type="text"
+          className="search__searchinput"
+          placeholder="SEARCH A CHARACTER..."
+          onChange={updateKeywords}
+          value={keywords}
+        />
+      </div>
+      {!isLoading && !error && results && results.nResults && (
+        <p className="searchnumresults">{results.nResults} results</p>
+      )}
+    </div>
   );
 }
 

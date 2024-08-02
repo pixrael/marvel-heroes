@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { FavoriteContext } from '../../contexts/favorite-context';
 import Grid from '../grid/grid';
 import { useFetchAllCharacters } from '../../hooks/useFetchAllCharacters';
@@ -9,9 +9,16 @@ import { InputSearchContext } from '../../contexts/search-context';
 
 function AllCharactersList() {
   const { favoriteIdList } = useContext(FavoriteContext);
-  const { debounceKeywords } = useContext(InputSearchContext);
+  const { debounceKeywords, setResults } = useContext(InputSearchContext);
   const { data, isLoading, error } = useFetchAllCharacters(debounceKeywords);
   const { parsedData } = useFetchAllCharactersParse(data);
+
+  useEffect(() => {
+    //move to a hook useSaveResults
+    if (parsedData) {
+      setResults({ nResults: parsedData.length, data: null });
+    }
+  }, [parsedData, setResults]);
 
   return (
     <>

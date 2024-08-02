@@ -8,6 +8,7 @@ function CharacterListPage() {
       <Header logoInteractive={false} />
       <div className="bodypage">
         <SearchCharacter />
+        <div className="gap36"></div>
         <AllCharactersList />
       </div>
     </>

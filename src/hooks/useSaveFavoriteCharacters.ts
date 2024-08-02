@@ -1,5 +1,5 @@
-import { useContext } from 'react';
-import { DataFavoriteContext } from '../contexts/data-favorite-context';
+import { useContext, useEffect } from 'react';
+import { FavoriteContext } from '../contexts/favorite-context';
 
 export const useSaveFavoriteCharacters = (
   parsedData:
@@ -10,14 +10,18 @@ export const useSaveFavoriteCharacters = (
       }
     | undefined
 ) => {
-  const dataRef = useContext(DataFavoriteContext);
-  if (parsedData && dataRef && dataRef.current) {
-    const favoriteDataList = dataRef.current;
+  const { favoriteCharacters, setFavoriteCharacters } =
+    useContext(FavoriteContext);
 
-    const alreadyExist = favoriteDataList.some(
-      ({ id }) => id === parsedData.id
-    );
+  useEffect(() => {
+    if (parsedData) {
+      const alreadyExist = favoriteCharacters.some(
+        (favC) => favC.id === parsedData.id
+      );
 
-    if (!alreadyExist) dataRef.current.push(parsedData);
-  }
+      if (!alreadyExist) {
+        setFavoriteCharacters([...favoriteCharacters, parsedData]);
+      }
+    }
+  }, [parsedData, favoriteCharacters, setFavoriteCharacters]);
 };

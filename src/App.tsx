@@ -4,10 +4,9 @@ import CharacterListPage from './pages/character-list-page';
 import ErrorPage from './pages/error-page';
 import DetailsPage from './pages/details-page';
 import { FavoriteContext } from './contexts/favorite-context';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { InputSearchContext } from './contexts/search-context';
 import FavoritesPage from './pages/favorites-page';
-import { DataFavoriteContext } from './contexts/data-favorite-context';
 
 const router = createBrowserRouter([
   {
@@ -26,8 +25,14 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const dataRef = useRef<{ id: number; name: string; img: string }[]>([]);
   const [favoriteIdList, setFavoriteIdList] = useState<number[]>([]);
+  const [favoriteCharacters, setFavoriteCharacters] = useState<
+    {
+      id: number;
+      name: string;
+      img: string;
+    }[]
+  >([]);
 
   const [keywords, setKeywords] = useState('');
   const [debounceKeywords, setDebounceKeywords] = useState('');
@@ -41,29 +46,29 @@ function App() {
   });
 
   return (
-    <DataFavoriteContext.Provider value={dataRef}>
-      <FavoriteContext.Provider
+    <FavoriteContext.Provider
+      value={{
+        favoriteIdList,
+        setFavoriteIdList,
+        favoriteCharacters,
+        setFavoriteCharacters,
+      }}
+    >
+      <InputSearchContext.Provider
         value={{
-          favoriteIdList,
-          setFavoriteIdList,
+          keywords,
+          setKeywords,
+          debounceKeywords,
+          setDebounceKeywords,
+          results: searchResults,
+          setResults: setSearchResults,
+          requestData,
+          setRequestData,
         }}
       >
-        <InputSearchContext.Provider
-          value={{
-            keywords,
-            setKeywords,
-            debounceKeywords,
-            setDebounceKeywords,
-            results: searchResults,
-            setResults: setSearchResults,
-            requestData,
-            setRequestData,
-          }}
-        >
-          <RouterProvider router={router} />
-        </InputSearchContext.Provider>
-      </FavoriteContext.Provider>
-    </DataFavoriteContext.Provider>
+        <RouterProvider router={router} />
+      </InputSearchContext.Provider>
+    </FavoriteContext.Provider>
   );
 }
 
