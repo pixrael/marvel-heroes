@@ -39,16 +39,19 @@ function HeroCardGrid({ heroes }: { heroes: HERO[] }) {
 
   return (
     <Grid>
-      {heroes.map(({ id, name, img }) => (
+      {heroes.map(({ id, name, img, requestData: { error, isLoading } }) => (
         <GridItem key={id} id={id}>
-          <HeroCard
-            id={id}
-            name={name}
-            img={img}
-            isSelected={favoriteIds.some((favId) => favId.id === id)}
-            handleFavoriteClick={handleFavoriteClick}
-            handleCardClick={handleCardClick}
-          />
+          {!error && !isLoading && (
+            <HeroCard
+              id={id}
+              name={name}
+              img={img}
+              isSelected={favoriteIds.some((favId) => favId.id === id)}
+              handleFavoriteClick={handleFavoriteClick}
+              handleCardClick={handleCardClick}
+            />
+          )}
+          {isLoading && <>Loading card</>}
         </GridItem>
       ))}
     </Grid>

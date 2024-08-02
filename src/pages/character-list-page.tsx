@@ -17,12 +17,25 @@ function CharacterListPage() {
       <Header logoInteractive={false} />
       <div className="bodypage">
         <SearchCharacter />
-        <HeroList
-          characterData={{
-            listData: { results: data, requestData: { error, isLoading } },
-            rootRequestData: { error, isLoading },
-          }}
-        />
+        {data && data.length && (
+          <HeroList
+            characterData={{
+              listData: {
+                results: data.map((d) => ({
+                  id: d.id,
+                  name: d.name,
+                  thumbnail: d.thumbnail,
+                  requestData: {
+                    error,
+                    isLoading,
+                  },
+                })),
+              },
+              rootRequestData: { error, isLoading },
+            }}
+          />
+        )}
+        {isLoading && <>is Loading...</>}
       </div>
     </>
   );
