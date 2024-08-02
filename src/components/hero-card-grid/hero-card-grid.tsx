@@ -9,6 +9,10 @@ export interface HERO {
   id: number;
   name: string;
   img: string;
+  requestData: {
+    error: any;
+    isLoading: boolean;
+  };
 }
 
 function HeroCardGrid({ heroes }: { heroes: HERO[] }) {

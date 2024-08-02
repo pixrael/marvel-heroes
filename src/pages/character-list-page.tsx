@@ -19,8 +19,8 @@ function CharacterListPage() {
         <SearchCharacter />
         <HeroList
           characterData={{
-            results: { data },
-            requestData: { error, isLoading },
+            listData: { results: data, requestData: { error, isLoading } },
+            rootRequestData: { error, isLoading },
           }}
         />
       </div>

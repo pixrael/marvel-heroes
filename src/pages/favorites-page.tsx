@@ -8,6 +8,30 @@ import CharacterByIdFetcher from '../components/fetchers/character-by-id-fetcher
 
 function FavoritesPage() {
   const { favoriteIds } = useContext(FavoriteContext);
+  const [characterData, setCharacterData] =
+    useState<any>(undefined); /* TODO: move to parse hook */
+
+  useEffect(() => {
+    const results: any[] = [];
+
+    favoriteIds.forEach((fid) => {
+      if (!fid.data) return;
+
+      const { id, name, thumbnail } = fid.data.results[0];
+      results.push({
+        id,
+        name,
+        thumbnail,
+        requestData: fid.requestData,
+      });
+    });
+
+    const characterData = {
+      listData: { results },
+      rootRequestData: { error: undefined, isLoading: false },
+    };
+    setCharacterData(characterData);
+  }, [favoriteIds]);
 
   return (
     <>
@@ -22,13 +46,7 @@ function FavoritesPage() {
         <Subtitle text="Favorites" />
         <div className="gap36"></div>
         <SearchCharacter />
-
-        {/*  <HeroList
-          characterData={{
-            results: { data },
-            requestData: { error, isLoading },
-          }}
-        /> */}
+        {characterData && <HeroList characterData={characterData} />}
       </div>
     </>
   );
