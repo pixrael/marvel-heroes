@@ -7,6 +7,8 @@ import { FavoriteContext } from './contexts/favorite-context';
 import { useContext, useEffect, useState } from 'react';
 import { AllCharactersContext } from './contexts/all-characters-context';
 import FavoritesPage from './pages/favorites-page';
+import { useAllCharactersState } from './hooks/useAllCharactersState';
+import { useFavoriteCharactersState } from './hooks/useFavoriteCharactersState';
 
 const router = createBrowserRouter([
   {
@@ -25,25 +27,27 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [favoriteIdList, setFavoriteIdList] = useState<number[]>([]);
-  const [favoriteCharacters, setFavoriteCharacters] = useState<
-    {
-      id: number;
-      name: string;
-      img: string;
-    }[]
-  >([]);
+  const {
+    keywordsFavoriteCharacters,
+    setKeywordsFavoriteCharacters,
+    debounceKeywordsFavoriteCharacters,
+    setDebounceKeywordsFavoriteCharacters,
+    favoriteIdList,
+    setFavoriteIdList,
+    favoriteCharacters,
+    setFavoriteCharacters,
+  } = useFavoriteCharactersState();
 
-  const [keywords, setKeywords] = useState('');
-  const [debounceKeywords, setDebounceKeywords] = useState('');
-  const [searchResults, setSearchResults] = useState({
-    nResults: 0,
-    data: null,
-  });
-  const [requestData, setRequestData] = useState({
-    error: null,
-    isLoading: false,
-  });
+  const {
+    keywordsAllCharacters,
+    setKeywordsAllCharacters,
+    debounceKeywordsAllCharacters,
+    setDebounceKeywordsAllCharacters,
+    searchResultsAllCharacters,
+    setSearchResultsAllCharacters,
+    requestDataAllCharacters,
+    setRequestDataAllCharacters,
+  } = useAllCharactersState();
 
   /* Monitoring */
   const { results } = useContext(AllCharactersContext);
@@ -61,24 +65,24 @@ function App() {
         favoriteCharacters,
         setFavoriteCharacters,
         searchData: {
-          keywords,
-          setKeywords,
-          debounceKeywords,
-          setDebounceKeywords,
+          keywords: keywordsFavoriteCharacters,
+          setKeywords: setKeywordsFavoriteCharacters,
+          debounceKeywords: debounceKeywordsFavoriteCharacters,
+          setDebounceKeywords: setDebounceKeywordsFavoriteCharacters,
         },
       }}
     >
       <AllCharactersContext.Provider
         value={{
-          results: searchResults,
-          setResults: setSearchResults,
-          requestData,
-          setRequestData,
+          results: searchResultsAllCharacters,
+          setResults: setSearchResultsAllCharacters,
+          requestData: requestDataAllCharacters,
+          setRequestData: setRequestDataAllCharacters,
           searchData: {
-            keywords,
-            setKeywords,
-            debounceKeywords,
-            setDebounceKeywords,
+            keywords: keywordsAllCharacters,
+            setKeywords: setKeywordsAllCharacters,
+            debounceKeywords: debounceKeywordsAllCharacters,
+            setDebounceKeywords: setDebounceKeywordsAllCharacters,
           },
         }}
       >
