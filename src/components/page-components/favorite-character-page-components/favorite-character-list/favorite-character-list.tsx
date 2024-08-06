@@ -1,8 +1,8 @@
-import { useContext, useEffect } from 'react';
-import FavoriteCharacterListItem from './favorite-character-list-item';
+import { useContext } from 'react';
+import FavoriteCharacterListItem from '../../../ui-components/favorite-character-list/favorite-character-list-item';
 
-import Grid from '../grid/grid';
-import { FavoriteContext } from '../../../contexts/favorite-context';
+import Grid from '../../../ui-components/grid/grid';
+import { FavoriteContext } from '../../../../contexts/favorite-context';
 
 function FavoriteCharacterList() {
   const {

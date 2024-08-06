@@ -1,11 +1,11 @@
 import { useContext, useEffect } from 'react';
-import { FavoriteContext } from '../../../contexts/favorite-context';
-import Grid from '../grid/grid';
-import { useFetchAllCharacters } from '../../../hooks/useFetchAllCharacters';
-import Loading from '../loading/loading';
-import { useFetchAllCharactersParse } from '../../../hooks/useFetchAllCharactersParse';
-import CharacterCard from '../character-card/character-card';
-import { AllCharactersContext } from '../../../contexts/all-characters-context';
+import { FavoriteContext } from '../../../../contexts/favorite-context';
+import Grid from '../../../ui-components/grid/grid';
+import { useFetchAllCharacters } from '../../../../hooks/useFetchAllCharacters';
+import Loading from '../../../ui-components/loading/loading';
+import { useFetchAllCharactersParse } from '../../../../hooks/useFetchAllCharactersParse';
+import CharacterCard from '../../../ui-components/character-card/character-card';
+import { AllCharactersContext } from '../../../../contexts/all-characters-context';
 
 function AllCharactersList() {
   const { favoriteIdList } = useContext(FavoriteContext);

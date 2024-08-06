@@ -2,11 +2,11 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import AllCharactersPage from './pages/all-characters-page';
 import ErrorPage from './pages/error-page';
-import DetailsPage from './pages/details-page';
+import DetailsPage from './pages/details-character-page';
 import { FavoriteContext } from './contexts/favorite-context';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { AllCharactersContext } from './contexts/all-characters-context';
-import FavoritesPage from './pages/favorites-page';
+import FavoritesPage from './pages/favorite-characters-page';
 import { useAllCharactersState } from './hooks/useAllCharactersState';
 import { useFavoriteCharactersState } from './hooks/useFavoriteCharactersState';
 
