@@ -1,15 +1,18 @@
 import { useContext, useEffect } from 'react';
-import { FavoriteContext } from '../../contexts/favorite-context';
+import { FavoriteContext } from '../../../contexts/favorite-context';
 import Grid from '../grid/grid';
-import { useFetchAllCharacters } from '../../hooks/useFetchAllCharacters';
+import { useFetchAllCharacters } from '../../../hooks/useFetchAllCharacters';
 import Loading from '../loading/loading';
-import { useFetchAllCharactersParse } from '../../hooks/useFetchAllCharactersParse';
+import { useFetchAllCharactersParse } from '../../../hooks/useFetchAllCharactersParse';
 import CharacterCard from '../character-card/character-card';
-import { InputSearchContext } from '../../contexts/search-context';
+import { AllCharactersContext } from '../../../contexts/all-characters-context';
 
 function AllCharactersList() {
   const { favoriteIdList } = useContext(FavoriteContext);
-  const { debounceKeywords, setResults } = useContext(InputSearchContext);
+  const {
+    searchData: { debounceKeywords },
+  } = useContext(AllCharactersContext);
+  const { setResults } = useContext(AllCharactersContext);
   const { data, isLoading, error } = useFetchAllCharacters(debounceKeywords);
   const { parsedData } = useFetchAllCharactersParse(data);
 

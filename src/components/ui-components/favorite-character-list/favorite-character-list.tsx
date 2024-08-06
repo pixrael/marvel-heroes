@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import FavoriteCharacterListItem from './favorite-character-list-item';
-import { FavoriteContext } from '../../contexts/favorite-context';
+
 import Grid from '../grid/grid';
+import { FavoriteContext } from '../../../contexts/favorite-context';
 
 function FavoriteCharacterList() {
   const { favoriteIdList } = useContext(FavoriteContext);

@@ -1,7 +1,7 @@
 /*TODO componetize like search-character */
 import { useContext, useMemo } from 'react';
 import './search-favorite-character.scss';
-import { InputSearchContext } from '../../contexts/search-context';
+import { InputSearchContext } from '../../../contexts/all-characters-context';
 import debounce from 'lodash.debounce';
 
 function SearchCharacter() {

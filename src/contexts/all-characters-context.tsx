@@ -1,10 +1,21 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
+import { SearchContextType } from './search-context-type';
 
-interface InputSearchContextType {
+export interface InputSearchContextType {
   keywords: string;
   setKeywords: Dispatch<SetStateAction<string>>;
   debounceKeywords: string;
   setDebounceKeywords: Dispatch<SetStateAction<string>>;
+}
+
+export const InputSearchContext = createContext<InputSearchContextType>({
+  keywords: '',
+  setKeywords: () => '',
+  debounceKeywords: '',
+  setDebounceKeywords: () => '',
+});
+
+export interface AllCharactersContextType {
   results: {
     nResults: number;
     data: any;
@@ -23,13 +34,10 @@ interface InputSearchContextType {
     error: any;
     isLoading: boolean;
   }>;
+  searchData: SearchContextType;
 }
 
-export const InputSearchContext = createContext<InputSearchContextType>({
-  keywords: '',
-  setKeywords: () => '',
-  debounceKeywords: '',
-  setDebounceKeywords: () => '',
+export const AllCharactersContext = createContext<AllCharactersContextType>({
   results: {
     nResults: 0,
     data: null,
@@ -40,4 +48,10 @@ export const InputSearchContext = createContext<InputSearchContextType>({
     isLoading: false,
   },
   setRequestData: () => false,
+  searchData: {
+    keywords: '',
+    setKeywords: () => '',
+    debounceKeywords: '',
+    setDebounceKeywords: () => '',
+  },
 });

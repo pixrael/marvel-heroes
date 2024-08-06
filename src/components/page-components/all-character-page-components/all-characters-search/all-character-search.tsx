@@ -1,16 +1,14 @@
-import { useContext, useEffect, useMemo } from 'react';
-import { InputSearchContext } from '../../contexts/search-context';
+import { useContext, useMemo } from 'react';
+import { AllCharactersContext } from '../../../../contexts/all-characters-context';
 import debounce from 'lodash.debounce';
-import SearchInput from '../search-input/search-input';
+import SearchInput from '../../../ui-components/search-input/search-input';
 
-function SearchCharacter() {
+function AllCharacterSearch() {
   const {
-    keywords,
-    setKeywords,
-    setDebounceKeywords,
+    searchData: { keywords, setKeywords, setDebounceKeywords },
     results,
     requestData: { isLoading, error },
-  } = useContext(InputSearchContext);
+  } = useContext(AllCharactersContext);
 
   const debounceFunc = useMemo(
     () =>
@@ -28,11 +26,11 @@ function SearchCharacter() {
   return (
     <SearchInput
       value={keywords}
-      showResults={true}
       handleChange={updateKeywords}
+      showResults={!isLoading && !error && results && !!results.nResults}
       nResults={results.nResults}
     />
   );
 }
 
-export default SearchCharacter;
+export default AllCharacterSearch;

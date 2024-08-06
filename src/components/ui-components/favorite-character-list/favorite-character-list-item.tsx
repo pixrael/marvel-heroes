@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import { useFetchCharacterById } from '../../hooks/useFetchCharacterById';
-import { useFetchCharacterByIdParse } from '../../hooks/useFetchCharacterByIdParse';
-import { FavoriteContext } from '../../contexts/favorite-context';
+import { FavoriteContext } from '../../../contexts/favorite-context';
+import { useFetchCharacterById } from '../../../hooks/useFetchCharacterById';
+import { useFetchCharacterByIdParse } from '../../../hooks/useFetchCharacterByIdParse';
+import { useSaveFavoriteCharacters } from '../../../hooks/useSaveFavoriteCharacters';
 import CharacterCard from '../character-card/character-card';
 import Loading from '../loading/loading';
-import { useSaveFavoriteCharacters } from '../../hooks/useSaveFavoriteCharacters';
 
 function FavoriteCharacterListItem({ id }: { id: number }) {
   const { favoriteIdList } = useContext(FavoriteContext);

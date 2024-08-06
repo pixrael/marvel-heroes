@@ -1,7 +1,7 @@
-import { useContext, useEffect } from 'react';
-import marvelLogo from '../../assets/imgs/Marvel logo.svg';
+import { useContext } from 'react';
+import marvelLogo from '../../../assets/imgs/Marvel logo.svg';
 import './header.scss';
-import { FavoriteContext } from '../../contexts/favorite-context';
+import { FavoriteContext } from '../../../contexts/favorite-context';
 import { useNavigate } from 'react-router-dom';
 
 function Header({

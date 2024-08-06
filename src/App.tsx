@@ -1,17 +1,17 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
-import CharacterListPage from './pages/character-list-page';
+import AllCharactersPage from './pages/all-characters-page';
 import ErrorPage from './pages/error-page';
 import DetailsPage from './pages/details-page';
 import { FavoriteContext } from './contexts/favorite-context';
-import { useState } from 'react';
-import { InputSearchContext } from './contexts/search-context';
+import { useContext, useEffect, useState } from 'react';
+import { AllCharactersContext } from './contexts/all-characters-context';
 import FavoritesPage from './pages/favorites-page';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <CharacterListPage />,
+    element: <AllCharactersPage />,
     errorElement: <ErrorPage />,
   },
   {
@@ -45,6 +45,14 @@ function App() {
     isLoading: false,
   });
 
+  /* Monitoring */
+  const { results } = useContext(AllCharactersContext);
+  useEffect(() => {
+    console.log('results __ ', results);
+  }, [results]);
+
+  /* ---Monitoring */
+
   return (
     <FavoriteContext.Provider
       value={{
@@ -52,22 +60,30 @@ function App() {
         setFavoriteIdList,
         favoriteCharacters,
         setFavoriteCharacters,
-      }}
-    >
-      <InputSearchContext.Provider
-        value={{
+        searchData: {
           keywords,
           setKeywords,
           debounceKeywords,
           setDebounceKeywords,
+        },
+      }}
+    >
+      <AllCharactersContext.Provider
+        value={{
           results: searchResults,
           setResults: setSearchResults,
           requestData,
           setRequestData,
+          searchData: {
+            keywords,
+            setKeywords,
+            debounceKeywords,
+            setDebounceKeywords,
+          },
         }}
       >
         <RouterProvider router={router} />
-      </InputSearchContext.Provider>
+      </AllCharactersContext.Provider>
     </FavoriteContext.Provider>
   );
 }

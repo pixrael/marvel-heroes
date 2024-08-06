@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
+import { SearchContextType } from './search-context-type';
 
 interface FavoriteContextType {
   favoriteIdList: number[];
@@ -17,6 +18,7 @@ interface FavoriteContextType {
       }[]
     >
   >;
+  searchData: SearchContextType;
 }
 
 export const FavoriteContext = createContext<FavoriteContextType>({
@@ -24,4 +26,10 @@ export const FavoriteContext = createContext<FavoriteContextType>({
   setFavoriteIdList: () => [],
   favoriteCharacters: [],
   setFavoriteCharacters: () => [],
+  searchData: {
+    keywords: '',
+    setKeywords: () => '',
+    debounceKeywords: '',
+    setDebounceKeywords: () => '',
+  },
 });

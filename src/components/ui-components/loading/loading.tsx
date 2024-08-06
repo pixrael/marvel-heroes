@@ -1,4 +1,4 @@
-import loadingIcon from '../../assets/imgs/loading-icon.png';
+import loadingIcon from '../../../assets/imgs/loading-icon.png';
 import './loading.scss';
 
 function Loading() {
