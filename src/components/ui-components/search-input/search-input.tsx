@@ -4,11 +4,13 @@ function SearchInput({
   handleChange,
   showResults,
   nResults,
+  placeholder,
 }: {
   value: string;
   handleChange: (evt) => void;
   showResults: boolean;
   nResults: number;
+  placeholder: string;
 }) {
   return (
     <div>
@@ -19,7 +21,7 @@ function SearchInput({
         <input
           type="text"
           className="search__searchinput"
-          placeholder="SEARCH A CHARACTER..."
+          placeholder={placeholder}
           onChange={handleChange}
           value={value}
         />

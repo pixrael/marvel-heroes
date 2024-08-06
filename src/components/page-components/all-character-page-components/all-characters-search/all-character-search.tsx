@@ -25,6 +25,7 @@ function AllCharacterSearch() {
 
   return (
     <SearchInput
+      placeholder="SEARCH A CHARACTER..."
       value={keywords}
       handleChange={updateKeywords}
       showResults={!isLoading && !error && results && !!results.nResults}

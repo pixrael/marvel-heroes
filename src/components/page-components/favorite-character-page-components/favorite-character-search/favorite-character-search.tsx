@@ -30,6 +30,7 @@ function FavoriteCharacterSearch() {
 
   return (
     <SearchInput
+      placeholder="SEARCH A FAVORITE CHARACTER..."
       value={keywords}
       handleChange={updateKeywords}
       showResults={!!favoriteCharacters.length}
