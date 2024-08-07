@@ -2,12 +2,22 @@
   background-color: blue;
   height: 320px;
   width: 100%;
-  padding-left: 48px;
-  padding-right: 48px;
 }
 
 .bodysection {
-  background-color: green;
+  background-color: forestgreen;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 393px) and (max-width: 834px) {
+    background-color: gray;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media (min-width: 418px) and (max-width: 537px) {
+    background-color: gray;
+  }
 }
 
 .card-detail {
@@ -17,6 +27,15 @@
   overflow: hidden;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 393px) and (max-width: 834px) {
+    background-color: gray;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+  }
 
   .row {
     display: flex;
@@ -24,11 +43,14 @@
     @media (max-width: 393px) {
       flex-direction: column;
     }
+    @media (min-width: 393px) and (max-width: 834px) {
+      max-height: 278px;
+    }
   }
 
   .col-image {
     flex: 0 0 40%;
-    @media (max-width: 393px) {
+    @media (max-width: 537px) {
       flex: none;
     }
 
@@ -37,8 +59,16 @@
       height: auto;
       display: block;
       border-radius: 8px 0 0 8px;
-      @media (max-width: 393px) {
+      @media (max-width: 537px) {
         border-radius: 8px 8px 0 0;
+        max-height: 397.89px;
+      }
+      @media (min-width: 393px) and (max-width: 834px) {
+        max-height: 278px;
+      }
+
+      @media (min-width: 393px) and (max-width: 537px) {
+        width: 200px;
       }
     }
   }

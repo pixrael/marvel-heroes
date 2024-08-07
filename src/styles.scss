@@ -69,10 +69,9 @@ h6 {
   isolation: isolate;
 }
 
-.test {
-  background-color: green;
-  /* width: 100%;
-  overflow-x: hidden; */
+/* the min-width of the body */
+body {
+  min-width: 393px;
 }
 
 /* || VARIABLES */
