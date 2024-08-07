@@ -9,6 +9,8 @@ import { AllCharactersContext } from './contexts/all-characters-context';
 import FavoritesPage from './pages/favorite-characters-page';
 import { useAllCharactersState } from './hooks/useAllCharactersState';
 import { useFavoriteCharactersState } from './hooks/useFavoriteCharactersState';
+import { useDetailsCharacterState } from './hooks/useDetailsCharacterState';
+import { DetailsCharacterContext } from './contexts/details-characters-context';
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,13 @@ function App() {
     setRequestDataAllCharacters,
   } = useAllCharactersState();
 
+  const {
+    searchResultsDetailCharacter,
+    setSearchResultsDetailCharacter,
+    requestDataDetailCharacter,
+    setRequestDataDetailCharacter,
+  } = useDetailsCharacterState();
+
   /* Monitoring */
   const { results } = useContext(AllCharactersContext);
   useEffect(() => {
@@ -86,7 +95,16 @@ function App() {
           },
         }}
       >
-        <RouterProvider router={router} />
+        <DetailsCharacterContext.Provider
+          value={{
+            results: searchResultsDetailCharacter,
+            setResults: setSearchResultsDetailCharacter,
+            requestData: requestDataDetailCharacter,
+            setRequestData: setRequestDataDetailCharacter,
+          }}
+        >
+          <RouterProvider router={router} />
+        </DetailsCharacterContext.Provider>
       </AllCharactersContext.Provider>
     </FavoriteContext.Provider>
   );
