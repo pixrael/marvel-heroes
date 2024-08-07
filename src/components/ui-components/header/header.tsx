@@ -7,9 +7,11 @@ import { useNavigate } from 'react-router-dom';
 function Header({
   logoInteractive = true,
   favoriteInteractive = true,
+  showBorder = false,
 }: {
   logoInteractive?: boolean;
   favoriteInteractive?: boolean;
+  showBorder?: boolean;
 }) {
   const navigate = useNavigate();
   const handleLogoClick = () => {
@@ -23,7 +25,7 @@ function Header({
   const { favoriteIdList } = useContext(FavoriteContext);
 
   return (
-    <header className="header">
+    <header className={`header ${showBorder ? 'border-bottom-1px' : ''}`}>
       <div
         className={`logo ${logoInteractive ? 'clickeable' : ''}`}
         onClick={handleLogoClick}

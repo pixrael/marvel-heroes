@@ -6,7 +6,7 @@ import DetailsCharacterSection from '../components/page-components/details-chara
 function DetailsCharactersPage() {
   return (
     <>
-      <Header logoInteractive={true} />
+      <Header logoInteractive={true} showBorder={true} />
       <DetailsCharacterSection />
       <div className="bodypage">
         {/* <AllCharacterSearch />
