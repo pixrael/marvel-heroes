@@ -26,3 +26,16 @@
     }
   }
 }
+
+@media (max-width: 393px) {
+  .grid {
+    grid-template-columns: repeat(2, 2fr);
+    .flexstart {
+      justify-self: flex-start;
+    }
+
+    .flexend {
+      justify-self: flex-end;
+    }
+  }
+}

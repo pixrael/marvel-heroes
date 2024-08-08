@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     element: <FavoritesPage />,
   },
   {
-    path: 'details/:heroId',
+    path: 'details/:id',
     element: <DetailsPage />,
   },
 ]);
@@ -57,14 +57,6 @@ function App() {
     requestDataDetailCharacter,
     setRequestDataDetailCharacter,
   } = useDetailsCharacterState();
-
-  /* Monitoring */
-  const { results } = useContext(AllCharactersContext);
-  useEffect(() => {
-    console.log('results __ ', results);
-  }, [results]);
-
-  /* ---Monitoring */
 
   return (
     <FavoriteContext.Provider

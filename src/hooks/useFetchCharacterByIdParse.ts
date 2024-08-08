@@ -9,6 +9,7 @@ export const useFetchCharacterByIdParse = (data: {
     id: number;
     name: string;
     thumbnail: { path: string; extension: string };
+    description: string;
   }[];
 }) => {
   const parsedData = useMemo(() => {
@@ -17,12 +18,14 @@ export const useFetchCharacterByIdParse = (data: {
         id,
         name,
         thumbnail: { extension, path },
+        description,
       } = data.results[0];
 
       return {
         id,
         name,
         img: `${path}.${extension}`,
+        description,
       };
     }
     return undefined;

@@ -1,19 +1,31 @@
 import CharacterSection from '../../../ui-components/character-section/character-section';
+import { useFetchCharacterById } from '../../../../hooks/useFetchCharacterById';
+import { useParams } from 'react-router-dom';
+
+import { useFetchCharacterByIdParse } from '../../../../hooks/useFetchCharacterByIdParse';
+import { useSaveCharacterDetails } from '../../../../hooks/useSaveCharacterDetails';
+import Loading from '../../../ui-components/loading/loading';
 
 function DetailsCharacterSection() {
+  const { id } = useParams();
+
+  const { data, isLoading, error } = useFetchCharacterById(id ? +id : 0);
+  const { parsedData } = useFetchCharacterByIdParse(data);
+  useSaveCharacterDetails(parsedData);
+
   return (
-    <CharacterSection
-      id={1}
-      title="Super HERO"
-      img="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
-      handleFavoriteClick={(id: number) => console.log('favorite ', id)}
-      description="This is a wider card with supporting text below as a natural
-                    lead-in to additional content. This content is a little bit
-                    longer. This is a wider card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer. This is a wider card with supporting text
-                    below as a natural lead-in to additional content."
-    />
+    <>
+      {!isLoading && results && results.data && (
+        <CharacterSection
+          id={results.data.id}
+          title={results.data.name}
+          img={results.data.img}
+          handleFavoriteClick={(id: number) => console.log('favorite ', id)}
+          description={results.data.description}
+        />
+      )}
+      {isLoading && <Loading />}
+    </>
   );
 }
 

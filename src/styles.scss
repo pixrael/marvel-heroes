@@ -71,11 +71,12 @@ h6 {
 
 /* the min-width of the body */
 body {
-  min-width: 393px;
+  min-width: var(--MINWIDTH);
 }
 
 /* || VARIABLES */
 :root {
+  --MINWIDTH: 506px;
   --HEADER-BGCOLOR: #000;
   --HEADER-HEIGHT: 84px;
   --HEADER-MINWIDTH: 393px;

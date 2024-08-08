@@ -14,7 +14,7 @@ export const useFetchCharacterById = (id: number) => {
 
   const resUrl = `${url}/${resource}/${id}?ts=${ts}&apikey=${apikey}&hash=${md5}`;
 
-  const { data, error, isLoading } = useSWR(resUrl, fetcher);
+  const { data, error, isLoading } = useSWR(id ? resUrl : null, fetcher);
 
   return {
     data: data?.data,
