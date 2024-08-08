@@ -3,6 +3,7 @@ import FavoriteCharacterListItem from '../../../ui-components/favorite-character
 
 import Grid from '../../../ui-components/grid/grid';
 import { FavoriteContext } from '../../../../contexts/favorite-context';
+import CharacterCard from '../../../ui-components/character-card/character-card';
 
 function FavoriteCharacterList() {
   const {
@@ -13,10 +14,8 @@ function FavoriteCharacterList() {
 
   return (
     <>
-      {!!favoriteIdList.length && (
+      {favoriteIdList.length !== favoriteCharacters.length && (
         <Grid>
-          {' '}
-          {/*  TODO Sort alphabetically */}
           {!debounceKeywords &&
             favoriteIdList.map((id) => (
               <FavoriteCharacterListItem key={id} id={id} />
@@ -28,6 +27,19 @@ function FavoriteCharacterList() {
                 name.toLowerCase().includes(debounceKeywords.toLowerCase())
               )
               .map(({ id }) => <FavoriteCharacterListItem key={id} id={id} />)}
+        </Grid>
+      )}
+      {favoriteIdList.length === favoriteCharacters.length && (
+        <Grid>
+          {favoriteCharacters.map(({ id, name, img }) => (
+            <CharacterCard
+              key={id}
+              id={id}
+              name={name}
+              img={img}
+              isSelected={favoriteIdList.some((favId) => favId === id)}
+            />
+          ))}
         </Grid>
       )}
     </>

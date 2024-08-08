@@ -1,15 +1,13 @@
 .herocard {
   position: relative;
-  max-width: 172.5px;
+  height: 100%;
   overflow: hidden;
-  width: 172.5px;
-  height: 245.97px;
   cursor: pointer;
+  background-color: antiquewhite;
 }
 
 .herocard__media {
   width: 100%;
-  height: 189.97px;
 }
 
 .herocard__content {

@@ -24,7 +24,7 @@ export const useFetchCharacterByIdParse = (data: {
       return {
         id,
         name,
-        img: `${path}.${extension}`,
+        img: `${path}/${'portrait_uncanny'}.${extension}`,
         description,
       };
     }

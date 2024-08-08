@@ -16,7 +16,9 @@ export const useFetchAllCharactersParse = (data: {
       return data.results.map((d) => ({
         id: d.id,
         name: d.name,
-        img: `${d.thumbnail.path}.${d.thumbnail.extension}`,
+        img: `${d.thumbnail.path}/${'portrait_uncanny'}.${
+          d.thumbnail.extension
+        }`,
       }));
     }
     return undefined;
