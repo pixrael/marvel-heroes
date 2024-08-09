@@ -15,7 +15,6 @@ export const useSaveCharacterDetails = (
 
   useEffect(() => {
     if (parsedData) {
-      console.log('useSaveCharacterDetails ', parsedData);
       setResults({ nResults: 1, data: parsedData });
     }
   }, [parsedData, setResults]);
