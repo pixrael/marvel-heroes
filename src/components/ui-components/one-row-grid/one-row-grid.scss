@@ -8,18 +8,15 @@
   scrollbar-color: #c1c1c1 #f0f0f0;
 
   &__item {
-    min-width: 170px;
-    min-height: 200px;
+    min-width: 168.53px;
+    min-height: 320.6px;
     height: auto;
-    background-color: gray;
     box-sizing: border-box;
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
 }
 
-/* Optional: Hide scrollbar in WebKit browsers (Chrome, Safari) */
 .grid::-webkit-scrollbar {
   height: 8px;
 }

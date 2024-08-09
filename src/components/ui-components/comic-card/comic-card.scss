@@ -1,39 +1,32 @@
-.herocard {
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  background-color: antiquewhite;
-}
-
-.herocard__media {
-  width: 100%;
-}
-
-.herocard__content {
-  background-color: black;
-  height: 56px;
-  padding: 16px;
-  border-top: 5.38px solid red;
+.stacked-card {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
 
-.herocard__title {
-  font-family: 'Roboto Condensed';
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16.41px;
-  text-align: left;
-  color: #ffffff;
-}
+  &__image {
+    width: 100%;
+    height: 252.79px;
+    display: block;
+    margin: 0;
+    object-fit: cover;
+  }
 
-.corner {
-  position: absolute;
-  bottom: 0;
-  right: -0.5px;
-  width: 12.86px;
-  height: 12.86px;
-  background: url('../../assets/imgs/cornerCut.svg') no-repeat;
-  background-size: cover;
+  &__title {
+    margin-top: 11.29px;
+    margin-bottom: 7.52px;
+    font-family: 'Roboto Condensed';
+    font-size: 15.05px;
+    font-weight: 500;
+    line-height: 17.63px;
+    text-align: left;
+  }
+
+  &__year {
+    font-family: 'Roboto Condensed';
+    font-size: 11.29px;
+    font-weight: 400;
+    line-height: 13.22px;
+    text-align: left;
+  }
 }
