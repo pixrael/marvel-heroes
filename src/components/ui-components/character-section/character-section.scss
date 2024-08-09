@@ -2,6 +2,9 @@
   height: 320px;
   width: 100%;
   min-width: var(--MINWIDTH);
+  @media (max-width: 393px) {
+    height: auto;
+  }
 
   .bodysection {
     background-color: black;
