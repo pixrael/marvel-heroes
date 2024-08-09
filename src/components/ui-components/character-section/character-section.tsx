@@ -5,12 +5,14 @@ function CharacterSection({
   title,
   img,
   description,
+  isSelected,
   handleFavoriteClick,
 }: {
   id: number;
   title: string;
   img: string;
   description: string;
+  isSelected: boolean;
   handleFavoriteClick: (id: number) => void;
 }) {
   return (
@@ -29,7 +31,9 @@ function CharacterSection({
                     className="iconbtn iconbtn--medium"
                     onClick={() => handleFavoriteClick(id)}
                   >
-                    <span className="hearticon"></span>
+                    <span
+                      className={isSelected ? 'heartlineicon' : 'hearticon'}
+                    ></span>
                   </button>
                 </div>
                 <div className="cardtextcontainer">
