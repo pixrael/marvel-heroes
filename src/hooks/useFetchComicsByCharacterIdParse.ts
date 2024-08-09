@@ -32,7 +32,7 @@ export const useFetchComicsByCharacterIdParse = (data: {
         img: `${d.thumbnail.path}/${'portrait_uncanny'}.${
           d.thumbnail.extension
         }`,
-        year: getSaleYear(d.dates),
+        year: getSaleYear(d.dates) + '',
       }));
     }
     return undefined;

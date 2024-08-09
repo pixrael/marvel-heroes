@@ -4,13 +4,14 @@ import AllCharactersPage from './pages/all-characters-page';
 import ErrorPage from './pages/error-page';
 import DetailsPage from './pages/details-character-page';
 import { FavoriteContext } from './contexts/favorite-context';
-import { useContext, useEffect } from 'react';
 import { AllCharactersContext } from './contexts/all-characters-context';
 import FavoritesPage from './pages/favorite-characters-page';
 import { useAllCharactersState } from './hooks/useAllCharactersState';
 import { useFavoriteCharactersState } from './hooks/useFavoriteCharactersState';
 import { useDetailsCharacterState } from './hooks/useDetailsCharacterState';
 import { DetailsCharacterContext } from './contexts/details-characters-context';
+import { ComicsByCharacterIdContext } from './contexts/comics-by-character-id-context';
+import { useComicsCharacterByIdState } from './hooks/useComicsCharacterByIdState';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,13 @@ function App() {
     setRequestDataDetailCharacter,
   } = useDetailsCharacterState();
 
+  const {
+    searchResultsComicsCharacters,
+    setSearchResultsComicsCharacters,
+    requestDataComicsCharacters,
+    setRequestDataComicsCharacters,
+  } = useComicsCharacterByIdState();
+
   return (
     <FavoriteContext.Provider
       value={{
@@ -95,7 +103,16 @@ function App() {
             setRequestData: setRequestDataDetailCharacter,
           }}
         >
-          <RouterProvider router={router} />
+          <ComicsByCharacterIdContext.Provider
+            value={{
+              results: searchResultsComicsCharacters,
+              setResults: setSearchResultsComicsCharacters,
+              requestData: requestDataComicsCharacters,
+              setRequestData: setRequestDataComicsCharacters,
+            }}
+          >
+            <RouterProvider router={router} />
+          </ComicsByCharacterIdContext.Provider>
         </DetailsCharacterContext.Provider>
       </AllCharactersContext.Provider>
     </FavoriteContext.Provider>
