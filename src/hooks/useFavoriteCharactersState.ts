@@ -6,9 +6,11 @@ export const useFavoriteCharactersState = () => {
   const [favoriteIdList, setFavoriteIdList] = useState<number[]>([]);
   const [favoriteCharacters, setFavoriteCharacters] = useState<
     {
-      id: number;
-      name: string;
-      img: string;
+      data: { id: number; name: string; img: string };
+      requestData: {
+        isLoading: boolean;
+        error: any;
+      };
     }[]
   >([]);
   return {

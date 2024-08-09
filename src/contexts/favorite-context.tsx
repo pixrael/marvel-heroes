@@ -5,16 +5,20 @@ interface FavoriteContextType {
   favoriteIdList: number[];
   setFavoriteIdList: Dispatch<SetStateAction<number[]>>;
   favoriteCharacters: {
-    id: number;
-    name: string;
-    img: string;
+    data: { id: number; name: string; img: string };
+    requestData: {
+      isLoading: boolean;
+      error: any;
+    };
   }[];
   setFavoriteCharacters: Dispatch<
     SetStateAction<
       {
-        id: number;
-        name: string;
-        img: string;
+        data: { id: number; name: string; img: string };
+        requestData: {
+          isLoading: boolean;
+          error: any;
+        };
       }[]
     >
   >;

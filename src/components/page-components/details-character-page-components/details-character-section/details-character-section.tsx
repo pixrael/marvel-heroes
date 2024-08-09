@@ -15,13 +15,13 @@ function DetailsCharacterSection() {
 
   return (
     <>
-      {!isLoading && results && results.data && (
+      {!isLoading && parsedData && (
         <CharacterSection
-          id={results.data.id}
-          title={results.data.name}
-          img={results.data.img}
+          id={parsedData.id}
+          title={parsedData.name}
+          img={parsedData.img}
           handleFavoriteClick={(id: number) => console.log('favorite ', id)}
-          description={results.data.description}
+          description={parsedData.description}
         />
       )}
       {isLoading && <Loading />}
