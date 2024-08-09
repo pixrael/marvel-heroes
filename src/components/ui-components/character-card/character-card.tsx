@@ -32,7 +32,7 @@ function CharacterCard({
   };
 
   return (
-    <div className="herocard" onClick={() => handleCardClick(id)}>
+    <div className="herocard clickeable" onClick={() => handleCardClick(id)}>
       <img className="herocard__media" src={img} alt="marvel image" />
       <div className="herocard__content">
         <h5 className="herocard__title">{name}</h5>
