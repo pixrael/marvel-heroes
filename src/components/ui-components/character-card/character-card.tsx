@@ -15,13 +15,23 @@ function CharacterCard({
   isSelected: boolean;
 }) {
   const navigate = useNavigate();
-  const { favoriteIdList, setFavoriteIdList } = useContext(FavoriteContext);
+  const {
+    favoriteIdList,
+    setFavoriteIdList,
+    favoriteCharacters,
+    setFavoriteCharacters,
+  } = useContext(FavoriteContext);
   const handleFavoriteClick = (id: number) => {
     const already = favoriteIdList.some((favId) => favId === id);
 
     if (already) {
       const newFavoriteIdList = favoriteIdList.filter((favId) => favId !== id);
       setFavoriteIdList(newFavoriteIdList);
+
+      const newFavoriteCharacters = favoriteCharacters.filter(
+        (favId) => favId.data.id !== id
+      );
+      setFavoriteCharacters([...newFavoriteCharacters]);
     } else {
       setFavoriteIdList([...favoriteIdList, id]);
     }
