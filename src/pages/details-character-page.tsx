@@ -10,6 +10,7 @@ function DetailsCharactersPage() {
       <DetailsCharacterSection />
       <div className="bodypage">
         <Subtitle text="Comics" />
+        <div className="gap24"></div>
         <DetailsCharactersComicList />
       </div>
     </>
