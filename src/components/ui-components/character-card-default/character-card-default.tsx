@@ -3,7 +3,6 @@ import Loading from '../loading/loading';
 import defaultImg from '../../../assets/imgs/default_img_portrait_uncanny.jpg';
 
 function CharacterCardDefault({ a }: { a?: boolean }) {
-  console.log('A ', a);
   return (
     <div className="herocard">
       <img className="herocard__media" src={defaultImg} alt="marvel image" />

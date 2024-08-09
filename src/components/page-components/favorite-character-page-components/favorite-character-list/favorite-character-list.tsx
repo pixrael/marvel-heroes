@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import FavoriteCharacterListItem from '../../../ui-components/favorite-character-list/favorite-character-list-item';
+import { ReactNode, useContext } from 'react';
 
 import Grid from '../../../ui-components/grid/grid';
 import { FavoriteContext } from '../../../../contexts/favorite-context';
 import CharacterCard from '../../../ui-components/character-card/character-card';
+import CharacterCardDefault from '../../../ui-components/character-card-default/character-card-default';
 
 function FavoriteCharacterList() {
   const {
@@ -12,37 +12,32 @@ function FavoriteCharacterList() {
     searchData: { debounceKeywords },
   } = useContext(FavoriteContext);
 
+  const displayCard = (character: any): ReactNode => {
+    if (character.requestData.isLoading) {
+      return <CharacterCardDefault />;
+    } else if (!character.requestData.isLoading && character.data) {
+      return (
+        <CharacterCard
+          key={character.data.id}
+          id={character.data.id}
+          name={character.data.name}
+          img={character.data.img}
+          isSelected={favoriteIdList.some(
+            (favId) => favId === character.data.id
+          )}
+        />
+      );
+    } else {
+      return <div></div>;
+    }
+  };
+
   return (
-    <>
-      {favoriteIdList.length !== favoriteCharacters.length && (
-        <Grid>
-          {!debounceKeywords &&
-            favoriteIdList.map((id) => (
-              <FavoriteCharacterListItem key={id} id={id} />
-            ))}
-          {debounceKeywords &&
-            favoriteCharacters.length &&
-            favoriteCharacters
-              .filter(({ name }) =>
-                name.toLowerCase().includes(debounceKeywords.toLowerCase())
-              )
-              .map(({ id }) => <FavoriteCharacterListItem key={id} id={id} />)}
-        </Grid>
-      )}
-      {favoriteIdList.length === favoriteCharacters.length && (
-        <Grid>
-          {favoriteCharacters.map(({ id, name, img }) => (
-            <CharacterCard
-              key={id}
-              id={id}
-              name={name}
-              img={img}
-              isSelected={favoriteIdList.some((favId) => favId === id)}
-            />
-          ))}
-        </Grid>
-      )}
-    </>
+    <Grid>
+      {favoriteCharacters.map((character, i) => (
+        <div key={i}>{displayCard(character)}</div>
+      ))}
+    </Grid>
   );
 }
 
