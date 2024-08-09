@@ -34,9 +34,16 @@ function FavoriteCharacterList() {
 
   return (
     <Grid>
-      {favoriteCharacters.map((character, i) => (
-        <div key={i}>{displayCard(character)}</div>
-      ))}
+      {favoriteCharacters
+        .filter((character) => {
+          if (character) {
+            return character.data.name.includes(debounceKeywords);
+          }
+          return true;
+        })
+        .map((character, i) => (
+          <div key={i}>{displayCard(character)}</div>
+        ))}
     </Grid>
   );
 }

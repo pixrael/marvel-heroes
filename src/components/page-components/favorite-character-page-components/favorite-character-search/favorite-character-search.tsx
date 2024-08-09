@@ -11,7 +11,6 @@ function FavoriteCharacterSearch() {
       debounceKeywords,
       setDebounceKeywords,
     },
-    favoriteIdList,
     favoriteCharacters,
   } = useContext(FavoriteContext);
 
@@ -30,29 +29,17 @@ function FavoriteCharacterSearch() {
 
   return (
     <SearchInput
-      placeholder="SEARCH A FAVORITE CHARACTER..."
+      placeholder="SEARCH CHARACTER IN FAVORITES..."
       value={keywords}
       handleChange={updateKeywords}
       showResults={!!favoriteCharacters.length}
       nResults={
-        debounceKeywords.length
-          ? favoriteCharacters.filter(({ id, name }) => {
-              const isAFavoriteCharacter = favoriteIdList.some(
-                (favoriteId) => favoriteId === id
-              );
-
-              const matchName = name
-                .toLowerCase()
-                .includes(debounceKeywords.toLowerCase());
-
-              return isAFavoriteCharacter && matchName;
-            }).length
-          : favoriteCharacters.filter(({ id }) => {
-              const isAFavoriteCharacter = favoriteIdList.some(
-                (favoriteId) => favoriteId === id
-              );
-              return isAFavoriteCharacter;
-            }).length
+        favoriteCharacters.filter((character) => {
+          if (character) {
+            return character.data.name.includes(debounceKeywords);
+          }
+          return true;
+        }).length
       }
     />
   );
