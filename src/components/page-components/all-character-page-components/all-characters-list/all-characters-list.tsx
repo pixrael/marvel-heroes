@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { AllCharactersContext } from '../../../../contexts/all-characters-context';
-import { FavoriteContext } from '../../../../contexts/favorite-context';
+import { AllCharactersContext } from '../../../../app-state/all-characters-context';
+import { FavoriteContext } from '../../../../app-state/favorite-context';
 import { useFetchAllCharacters } from '../../../../hooks/all-characters/useFetchAllCharacters';
 import { useFetchAllCharactersParse } from '../../../../hooks/all-characters/useFetchAllCharactersParse';
 

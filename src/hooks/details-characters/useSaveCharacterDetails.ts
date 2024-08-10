@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { DetailsCharacterContext } from '../../contexts/details-characters-context';
+import { DetailsCharacterContext } from '../../app-state/details-characters-context';
 
 export const useSaveCharacterDetails = (
   parsedData:
