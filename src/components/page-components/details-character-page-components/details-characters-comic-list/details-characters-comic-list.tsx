@@ -1,16 +1,14 @@
+import { useParams } from 'react-router-dom';
 import Loading from '../../../ui-components/loading/loading';
 import ComicCard from '../../../ui-components/comic-card/comic-card';
 import { useFetchComicsByCharacterId } from '../../../../hooks/useFetchComicsByCharacterId';
-import { useParams } from 'react-router-dom';
 import { useFetchComicsByCharacterIdParse } from '../../../../hooks/useFetchComicsByCharacterIdParse';
 import { useSaveComicByCharacterId } from '../../../../hooks/useSaveComicsByCharacterId';
 import OneRowGrid from '../../../ui-components/one-row-grid/one-row-grid';
 
 function DetailsCharactersComicList() {
   const { id } = useParams();
-  const { data, isLoading, error } = useFetchComicsByCharacterId(
-    id ? +id : undefined
-  );
+  const { data, isLoading } = useFetchComicsByCharacterId(id ? +id : undefined);
 
   const { parsedData } = useFetchComicsByCharacterIdParse(data);
   useSaveComicByCharacterId(parsedData);

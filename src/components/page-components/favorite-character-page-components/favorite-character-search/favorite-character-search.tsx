@@ -2,6 +2,8 @@ import { useContext, useMemo } from 'react';
 import debounce from 'lodash.debounce';
 import SearchInput from '../../../ui-components/search-input/search-input';
 import { FavoriteContext } from '../../../../contexts/favorite-context';
+import { getInputSearchDebounce } from '../../../../utils/utils';
+import { INPUT_SEARCH_DEBOUNCE_TIME } from '../../../../constants';
 
 function FavoriteCharacterSearch() {
   const {
@@ -16,9 +18,10 @@ function FavoriteCharacterSearch() {
 
   const debounceFunc = useMemo(
     () =>
-      debounce((event: React.ChangeEvent<HTMLInputElement>) => {
-        setDebounceKeywords(event.target.value);
-      }, 300),
+      debounce(
+        getInputSearchDebounce(setDebounceKeywords),
+        INPUT_SEARCH_DEBOUNCE_TIME
+      ),
     [setDebounceKeywords]
   );
 

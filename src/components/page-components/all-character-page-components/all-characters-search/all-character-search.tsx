@@ -1,7 +1,9 @@
 import { useContext, useMemo } from 'react';
-import { AllCharactersContext } from '../../../../contexts/all-characters-context';
 import debounce from 'lodash.debounce';
+import { AllCharactersContext } from '../../../../contexts/all-characters-context';
 import SearchInput from '../../../ui-components/search-input/search-input';
+import { getInputSearchDebounce } from '../../../../utils/utils';
+import { INPUT_SEARCH_DEBOUNCE_TIME } from '../../../../constants';
 
 function AllCharacterSearch() {
   const {
@@ -12,9 +14,10 @@ function AllCharacterSearch() {
 
   const debounceFunc = useMemo(
     () =>
-      debounce((event: React.ChangeEvent<HTMLInputElement>) => {
-        setDebounceKeywords(event.target.value);
-      }, 300),
+      debounce(
+        getInputSearchDebounce(setDebounceKeywords),
+        INPUT_SEARCH_DEBOUNCE_TIME
+      ),
     [setDebounceKeywords]
   );
 
