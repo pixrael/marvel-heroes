@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
+
+import { REQUEST_DATA, RESULTS_DATA } from '../../interfaces';
 import { SearchContextType } from './search-context-type';
-import { REQUEST_DATA, RESULTS_DATA } from '../interfaces';
 
 export interface AllCharactersContextType {
   results: RESULTS_DATA;

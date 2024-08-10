@@ -4,7 +4,7 @@ import ErrorPage from './pages/error-page';
 import DetailsPage from './pages/details-character-page';
 import FavoritesPage from './pages/favorite-characters-page';
 import './App.css';
-import ContextProvider from './app-state/context-providers/ContextProvider';
+import ContextProvider from './app-state/ContextProvider';
 
 const router = createBrowserRouter([
   {

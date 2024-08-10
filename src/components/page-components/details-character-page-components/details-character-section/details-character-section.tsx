@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { FavoriteContext } from '../../../../app-state/favorite-context';
+import { FavoriteContext } from '../../../../app-state/contexts/favorite-context';
 import { useFetchCharacterById } from '../../../../hooks/favorite-characters/useFetchCharacterById';
 import { useFetchCharacterByIdParse } from '../../../../hooks/favorite-characters/useFetchCharacterByIdParse';
 

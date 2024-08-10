@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { useComicsCharacterByIdState } from '../../hooks/details-characters/useComicsCharacterByIdState';
-import { ComicsByCharacterIdContext } from '../comics-by-character-id-context';
+import { ComicsByCharacterIdContext } from '../contexts/comics-by-character-id-context';
 
 function ComicsByCharacterIdContextProvider({
   children,

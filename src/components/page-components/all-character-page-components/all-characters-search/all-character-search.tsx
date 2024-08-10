@@ -1,6 +1,6 @@
 import { useContext, useMemo } from 'react';
 import debounce from 'lodash.debounce';
-import { AllCharactersContext } from '../../../../app-state/all-characters-context';
+import { AllCharactersContext } from '../../../../app-state/contexts/all-characters-context';
 import SearchInput from '../../../ui-components/search-input/search-input';
 import { getInputSearchDebounce } from '../../../../utils/utils';
 import { INPUT_SEARCH_DEBOUNCE_TIME } from '../../../../constants';

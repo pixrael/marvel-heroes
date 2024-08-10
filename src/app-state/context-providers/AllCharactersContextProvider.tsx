@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { AllCharactersContext } from '../all-characters-context';
+import { AllCharactersContext } from '../contexts/all-characters-context';
 import { useAllCharactersState } from '../../hooks/all-characters/useAllCharactersState';
 
 function AllCharactersContextProvider({ children }: { children: ReactNode }) {

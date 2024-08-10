@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { ComicsByCharacterIdContext } from '../../app-state/comics-by-character-id-context';
+import { ComicsByCharacterIdContext } from '../../app-state/contexts/comics-by-character-id-context';
 
 export const useSaveComicByCharacterId = (
   parsedData:

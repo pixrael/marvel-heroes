@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
 import { SearchContextType } from './search-context-type';
-import { FAVORITE_CHARACTER_DATA, REQUEST_DATA } from '../interfaces';
+import { FAVORITE_CHARACTER_DATA, REQUEST_DATA } from '../../interfaces';
 
 interface FavoriteContextType {
   favoriteIdList: number[];

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FavoriteContext } from '../../../app-state/favorite-context';
+import { FavoriteContext } from '../../../app-state/contexts/favorite-context';
 import './character-card.scss';
 
 function CharacterCard({

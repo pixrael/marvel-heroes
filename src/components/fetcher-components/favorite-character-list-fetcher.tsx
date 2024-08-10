@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { FavoriteContext } from '../../app-state/favorite-context';
+import { FavoriteContext } from '../../app-state/contexts/favorite-context';
 import FavoriteCharacterFetcher from './favorite-character-fetcher';
 
 function FavoriteCharacterListFetcher() {

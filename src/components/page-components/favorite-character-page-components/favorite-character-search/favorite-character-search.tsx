@@ -1,7 +1,7 @@
 import { useContext, useMemo } from 'react';
 import debounce from 'lodash.debounce';
 import SearchInput from '../../../ui-components/search-input/search-input';
-import { FavoriteContext } from '../../../../app-state/favorite-context';
+import { FavoriteContext } from '../../../../app-state/contexts/favorite-context';
 import { getInputSearchDebounce } from '../../../../utils/utils';
 import { INPUT_SEARCH_DEBOUNCE_TIME } from '../../../../constants';
 

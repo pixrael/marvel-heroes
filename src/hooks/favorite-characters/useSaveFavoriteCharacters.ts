@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { FavoriteContext } from '../../app-state/favorite-context';
+import { FavoriteContext } from '../../app-state/contexts/favorite-context';
 
 import isEqual from 'lodash.isequal';
 

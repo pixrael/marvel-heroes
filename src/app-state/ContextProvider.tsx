@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
-import AllCharactersContextProvider from './AllCharactersContextProvider';
-import ComicsByCharacterIdContextProvider from './ComicsByCharacterIdContextProvider';
-import DetailsCharacterContextProvider from './DetailsCharacterContextProvider';
-import FavoriteContextProvider from './FavoriteContextProvider';
+import AllCharactersContextProvider from './context-providers/AllCharactersContextProvider';
+import ComicsByCharacterIdContextProvider from './context-providers/ComicsByCharacterIdContextProvider';
+import DetailsCharacterContextProvider from './context-providers/DetailsCharacterContextProvider';
+import FavoriteContextProvider from './context-providers/FavoriteContextProvider';
 
 function ContextProvider({ children }: { children: ReactNode }) {
   return (
