@@ -6,6 +6,7 @@ import { useFetchCharacterByIdParse } from '../../../../hooks/useFetchCharacterB
 import { useSaveCharacterDetails } from '../../../../hooks/useSaveCharacterDetails';
 import Loading from '../../../ui-components/loading/loading';
 import CharacterSection from '../../../ui-components/character-section/character-section';
+import CharacterCardDetails from '../../../ui-components/character-card-details/character-card-details';
 
 function DetailsCharacterSection() {
   const { id } = useParams();
@@ -40,14 +41,16 @@ function DetailsCharacterSection() {
   return (
     <>
       {!isLoading && parsedData && (
-        <CharacterSection
-          id={parsedData.id}
-          title={parsedData.name}
-          img={parsedData.img}
-          handleFavoriteClick={handleFavoriteClick}
-          description={parsedData.description}
-          isSelected={favoriteIdList.some((favId) => favId === parsedData.id)}
-        />
+        <CharacterSection>
+          <CharacterCardDetails
+            id={parsedData.id}
+            name={parsedData.name}
+            img={parsedData.img}
+            handleFavoriteClick={handleFavoriteClick}
+            description={parsedData.description}
+            isSelected={favoriteIdList.some((favId) => favId === parsedData.id)}
+          />
+        </CharacterSection>
       )}
       {isLoading && <Loading />}
     </>
