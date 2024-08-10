@@ -1,26 +1,7 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import AllCharactersPage from './pages/all-characters-page';
-import ErrorPage from './pages/error-page';
-import DetailsPage from './pages/details-character-page';
-import FavoritesPage from './pages/favorite-characters-page';
-import './App.css';
+import { RouterProvider } from 'react-router-dom';
 import ContextProvider from './app-state/ContextProvider';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <AllCharactersPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: 'favorites',
-    element: <FavoritesPage />,
-  },
-  {
-    path: 'details/:id',
-    element: <DetailsPage />,
-  },
-]);
+import { router } from './routes';
+import './App.css';
 
 function App() {
   return (
