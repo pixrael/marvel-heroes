@@ -1,39 +1,12 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
 import { SearchContextType } from './search-context-type';
-
-export interface InputSearchContextType {
-  keywords: string;
-  setKeywords: Dispatch<SetStateAction<string>>;
-  debounceKeywords: string;
-  setDebounceKeywords: Dispatch<SetStateAction<string>>;
-}
-
-export const InputSearchContext = createContext<InputSearchContextType>({
-  keywords: '',
-  setKeywords: () => '',
-  debounceKeywords: '',
-  setDebounceKeywords: () => '',
-});
+import { REQUEST_DATA, RESULTS_DATA } from '../interfaces';
 
 export interface AllCharactersContextType {
-  results: {
-    nResults: number;
-    data: any;
-  };
-  setResults: Dispatch<
-    SetStateAction<{
-      nResults: number;
-      data: any;
-    }>
-  >;
-  requestData: {
-    error: any;
-    isLoading: boolean;
-  };
-  setRequestData: Dispatch<{
-    error: any;
-    isLoading: boolean;
-  }>;
+  results: RESULTS_DATA;
+  setResults: Dispatch<SetStateAction<RESULTS_DATA>>;
+  requestData: REQUEST_DATA;
+  setRequestData: Dispatch<REQUEST_DATA>;
   searchData: SearchContextType;
 }
 

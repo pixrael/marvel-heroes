@@ -1,24 +1,11 @@
 import { Dispatch, SetStateAction, createContext } from 'react';
+import { REQUEST_DATA, RESULTS_DATA } from '../interfaces';
 
 export interface DetailsCharactersContextType {
-  results: {
-    nResults: number;
-    data: any;
-  };
-  setResults: Dispatch<
-    SetStateAction<{
-      nResults: number;
-      data: any;
-    }>
-  >;
-  requestData: {
-    error: any;
-    isLoading: boolean;
-  };
-  setRequestData: Dispatch<{
-    error: any;
-    isLoading: boolean;
-  }>;
+  results: RESULTS_DATA;
+  setResults: Dispatch<SetStateAction<RESULTS_DATA>>;
+  requestData: REQUEST_DATA;
+  setRequestData: Dispatch<REQUEST_DATA>;
 }
 
 export const DetailsCharacterContext =

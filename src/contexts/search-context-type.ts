@@ -6,10 +6,3 @@ export interface SearchContextType {
   debounceKeywords: string;
   setDebounceKeywords: Dispatch<SetStateAction<string>>;
 }
-
-/* export const FavoriteContext = createContext<SearchFavoriteContextType>({
-  keywords: '',
-  setKeywords: () => '',
-  debounceKeywords: '',
-  setDebounceKeywords: () => '',
-}); */
