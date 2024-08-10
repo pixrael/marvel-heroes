@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import { AllCharactersContext } from '../../../../contexts/all-characters-context';
 import { FavoriteContext } from '../../../../contexts/favorite-context';
-import { useFetchAllCharacters } from '../../../../hooks/useFetchAllCharacters';
-import { useFetchAllCharactersParse } from '../../../../hooks/useFetchAllCharactersParse';
-import { useSaveAllCharacters } from '../../../../hooks/useSaveAllCharacters';
+import { useFetchAllCharacters } from '../../../../hooks/all-characters/useFetchAllCharacters';
+import { useFetchAllCharactersParse } from '../../../../hooks/all-characters/useFetchAllCharactersParse';
+
 import CharacterCard from '../../../ui-components/character-card/character-card';
 import Grid from '../../../frames/grid/grid';
 import Loading from '../../../ui-components/loading/loading';
+import { useSaveAllCharacters } from '../../../../hooks/all-characters/useSaveAllCharacters';
 
 function AllCharactersList() {
   const { favoriteIdList } = useContext(FavoriteContext);

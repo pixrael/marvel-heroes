@@ -1,12 +1,13 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { FavoriteContext } from '../../../../contexts/favorite-context';
-import { useFetchCharacterById } from '../../../../hooks/useFetchCharacterById';
-import { useFetchCharacterByIdParse } from '../../../../hooks/useFetchCharacterByIdParse';
-import { useSaveCharacterDetails } from '../../../../hooks/useSaveCharacterDetails';
+import { useFetchCharacterById } from '../../../../hooks/favorite-characters/useFetchCharacterById';
+import { useFetchCharacterByIdParse } from '../../../../hooks/favorite-characters/useFetchCharacterByIdParse';
+
 import Loading from '../../../ui-components/loading/loading';
 import CharacterSection from '../../../frames/character-section/character-section';
 import CharacterCardDetails from '../../../ui-components/character-card-details/character-card-details';
+import { useSaveCharacterDetails } from '../../../../hooks/details-characters/useSaveCharacterDetails';
 
 function DetailsCharacterSection() {
   const { id } = useParams();

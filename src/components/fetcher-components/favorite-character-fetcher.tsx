@@ -1,6 +1,6 @@
-import { useFetchCharacterById } from '../../hooks/useFetchCharacterById';
-import { useFetchCharacterByIdParse } from '../../hooks/useFetchCharacterByIdParse';
-import { useSaveFavoriteCharacters } from '../../hooks/useSaveFavoriteCharacters';
+import { useFetchCharacterById } from '../../hooks/favorite-characters/useFetchCharacterById';
+import { useFetchCharacterByIdParse } from '../../hooks/favorite-characters/useFetchCharacterByIdParse';
+import { useSaveFavoriteCharacters } from '../../hooks/favorite-characters/useSaveFavoriteCharacters';
 
 function FavoriteCharacterFetcher({ id }: { id: number }) {
   const { data, isLoading, error } = useFetchCharacterById(id);

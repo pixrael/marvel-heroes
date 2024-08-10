@@ -6,12 +6,13 @@ import DetailsPage from './pages/details-character-page';
 import { FavoriteContext } from './contexts/favorite-context';
 import { AllCharactersContext } from './contexts/all-characters-context';
 import FavoritesPage from './pages/favorite-characters-page';
-import { useAllCharactersState } from './hooks/useAllCharactersState';
-import { useFavoriteCharactersState } from './hooks/useFavoriteCharactersState';
-import { useDetailsCharacterState } from './hooks/useDetailsCharacterState';
+import { useAllCharactersState } from './hooks/all-characters/useAllCharactersState';
+import { useFavoriteCharactersState } from './hooks/favorite-characters/useFavoriteCharactersState';
+
 import { DetailsCharacterContext } from './contexts/details-characters-context';
 import { ComicsByCharacterIdContext } from './contexts/comics-by-character-id-context';
-import { useComicsCharacterByIdState } from './hooks/useComicsCharacterByIdState';
+import { useDetailsCharacterState } from './hooks/details-characters/useDetailsCharacterState';
+import { useComicsCharacterByIdState } from './hooks/details-characters/useComicsCharacterByIdState';
 
 const router = createBrowserRouter([
   {
