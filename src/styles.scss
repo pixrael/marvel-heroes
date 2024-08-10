@@ -154,6 +154,16 @@ body {
   }
 }
 
+.corner {
+  position: absolute;
+  bottom: 0;
+  right: -0.5px;
+  width: 12.86px;
+  height: 12.86px;
+  background: url('/src/assets/imgs/cornerCut.svg') no-repeat;
+  background-size: cover;
+}
+
 /* || ELEMENTS */
 .iconbtn--medium {
   width: 24px;
