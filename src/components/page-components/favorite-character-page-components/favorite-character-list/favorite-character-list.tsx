@@ -1,5 +1,5 @@
 import { ReactNode, useContext } from 'react';
-import Grid from '../../../ui-components/grid/grid';
+import Grid from '../../../frames/grid/grid';
 import { FavoriteContext } from '../../../../contexts/favorite-context';
 import CharacterCard from '../../../ui-components/character-card/character-card';
 import CharacterCardDefault from '../../../ui-components/character-card-default/character-card-default';

@@ -5,7 +5,7 @@ import { useFetchCharacterById } from '../../../../hooks/useFetchCharacterById';
 import { useFetchCharacterByIdParse } from '../../../../hooks/useFetchCharacterByIdParse';
 import { useSaveCharacterDetails } from '../../../../hooks/useSaveCharacterDetails';
 import Loading from '../../../ui-components/loading/loading';
-import CharacterSection from '../../../ui-components/character-section/character-section';
+import CharacterSection from '../../../frames/character-section/character-section';
 import CharacterCardDetails from '../../../ui-components/character-card-details/character-card-details';
 
 function DetailsCharacterSection() {

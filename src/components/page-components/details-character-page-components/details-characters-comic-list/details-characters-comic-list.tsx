@@ -4,7 +4,7 @@ import ComicCard from '../../../ui-components/comic-card/comic-card';
 import { useFetchComicsByCharacterId } from '../../../../hooks/useFetchComicsByCharacterId';
 import { useFetchComicsByCharacterIdParse } from '../../../../hooks/useFetchComicsByCharacterIdParse';
 import { useSaveComicByCharacterId } from '../../../../hooks/useSaveComicsByCharacterId';
-import OneRowGrid from '../../../ui-components/one-row-grid/one-row-grid';
+import OneRowGrid from '../../../frames/one-row-grid/one-row-grid';
 
 function DetailsCharactersComicList() {
   const { id } = useParams();

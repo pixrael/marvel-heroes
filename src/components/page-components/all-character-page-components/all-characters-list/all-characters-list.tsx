@@ -5,7 +5,7 @@ import { useFetchAllCharacters } from '../../../../hooks/useFetchAllCharacters';
 import { useFetchAllCharactersParse } from '../../../../hooks/useFetchAllCharactersParse';
 import { useSaveAllCharacters } from '../../../../hooks/useSaveAllCharacters';
 import CharacterCard from '../../../ui-components/character-card/character-card';
-import Grid from '../../../ui-components/grid/grid';
+import Grid from '../../../frames/grid/grid';
 import Loading from '../../../ui-components/loading/loading';
 
 function AllCharactersList() {

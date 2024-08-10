@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { FavoriteContext } from '../../contexts/favorite-context';
-import Grid from '../grid/grid';
-import GridItem from '../grid/grid-item';
+import Grid from '../../frames/grid/grid';
+import GridItem from '../../frames/grid/grid-item';
 import Loading from '../loading/loading';
 import CharacterCard from '../character-card/character-card';
 
