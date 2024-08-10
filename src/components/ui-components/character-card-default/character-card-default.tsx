@@ -1,8 +1,8 @@
-import './character-card-default.scss';
 import Loading from '../loading/loading';
 import defaultImg from '../../../assets/imgs/default_img_portrait_uncanny.jpg';
+import './character-card-default.scss';
 
-function CharacterCardDefault({ a }: { a?: boolean }) {
+function CharacterCardDefault() {
   return (
     <div className="herocard">
       <img className="herocard__media" src={defaultImg} alt="marvel image" />
