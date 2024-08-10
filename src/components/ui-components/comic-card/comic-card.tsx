@@ -12,10 +12,10 @@ function ComicCard({
   year: string;
 }) {
   return (
-    <div className="stacked-card">
-      <img src={img} alt={title} className="stacked-card__image" />
-      <div className="stacked-card__title">{title}</div>
-      <div className="stacked-card__year">{year}</div>
+    <div id={id + ''} className="comiccard">
+      <img src={img} alt={title} className="comiccard__image" />
+      <div className="comiccard__title">{title}</div>
+      <div className="comiccard__year">{year}</div>
     </div>
   );
 }
