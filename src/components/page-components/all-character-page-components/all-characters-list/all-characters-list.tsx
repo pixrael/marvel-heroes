@@ -6,22 +6,18 @@ import Loading from '../../../ui-components/loading/loading';
 import { useFetchAllCharactersParse } from '../../../../hooks/useFetchAllCharactersParse';
 import CharacterCard from '../../../ui-components/character-card/character-card';
 import { AllCharactersContext } from '../../../../contexts/all-characters-context';
+import { useSaveAllCharacters } from '../../../../hooks/useSaveAllCharacters';
 
 function AllCharactersList() {
   const { favoriteIdList } = useContext(FavoriteContext);
   const {
     searchData: { debounceKeywords },
   } = useContext(AllCharactersContext);
-  const { setResults } = useContext(AllCharactersContext);
+
   const { data, isLoading, error } = useFetchAllCharacters(debounceKeywords);
   const { parsedData } = useFetchAllCharactersParse(data);
 
-  useEffect(() => {
-    //move to a hook useSaveResults
-    if (parsedData) {
-      setResults({ nResults: parsedData.length, data: null });
-    }
-  }, [parsedData, setResults]);
+  useSaveAllCharacters(parsedData);
 
   return (
     <>
