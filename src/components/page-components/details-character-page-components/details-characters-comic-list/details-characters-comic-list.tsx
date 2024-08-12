@@ -18,11 +18,9 @@ function DetailsCharactersComicList() {
     <>
       {parsedData && (
         <OneRowGrid>
-          {[...parsedData, ...parsedData, ...parsedData].map(
-            ({ id, title, img, year }) => (
-              <ComicCard key={id} id={id} title={title} img={img} year={year} />
-            )
-          )}
+          {[...parsedData].map(({ id, title, img, year }) => (
+            <ComicCard key={id} id={id} title={title} img={img} year={year} />
+          ))}
         </OneRowGrid>
       )}
       {isLoading && <Loading />}
