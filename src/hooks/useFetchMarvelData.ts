@@ -1,4 +1,5 @@
 import useSWR from 'swr';
+import { API_CONFIG } from '../config/apiConfig';
 
 type FetchArgs = Parameters<typeof fetch>;
 
@@ -19,15 +20,11 @@ export const useFetchMarvelData = ({
   subresource,
   params,
 }: UseFetchOptions) => {
-  const url = import.meta.env.VITE_REACT_API_MARVEL_URL;
-  const ts = '1';
-  const apikey = import.meta.env.VITE_REACT_PUBLIC_KEY;
-  const md5 = import.meta.env.VITE_REACT_MD5;
-
+  const { ts, apikey, hash, url } = API_CONFIG;
   const queryString = new URLSearchParams({
     ts,
     apikey,
-    hash: md5,
+    hash,
     ...params,
   }).toString();
 
