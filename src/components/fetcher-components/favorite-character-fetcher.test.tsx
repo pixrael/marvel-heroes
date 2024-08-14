@@ -9,7 +9,7 @@ import {
 import { useSaveFavoriteCharacters } from '../../hooks/favorite-characters/useSaveFavoriteCharacters';
 
 vi.mock('../../hooks/favorite-characters/useFetchCharacterById', () => ({
-  useFetchCharacterById: vi.fn((id: number) => {}),
+  useFetchCharacterById: vi.fn(() => {}),
 }));
 const useFetchCharacterByIdSpy = useFetchCharacterById as Mock<
   (id: number) => {
@@ -20,7 +20,7 @@ const useFetchCharacterByIdSpy = useFetchCharacterById as Mock<
 >;
 
 vi.mock('../../hooks/favorite-characters/useFetchCharacterByIdParse', () => ({
-  useFetchCharacterByIdParse: vi.fn((id: number) => {}),
+  useFetchCharacterByIdParse: vi.fn(() => {}),
 }));
 const useFetchCharacterByIdParseSpy = useFetchCharacterByIdParse as Mock<
   (data: CHARACTER_BY_ID_RAW) => {
@@ -35,7 +35,7 @@ const useFetchCharacterByIdParseSpy = useFetchCharacterByIdParse as Mock<
 >;
 
 vi.mock('../../hooks/favorite-characters/useSaveFavoriteCharacters', () => ({
-  useSaveFavoriteCharacters: vi.fn((id: number) => {}),
+  useSaveFavoriteCharacters: vi.fn(() => {}),
 }));
 const useSaveFavoriteCharactersSpy = useSaveFavoriteCharacters as Mock<
   (

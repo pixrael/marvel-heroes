@@ -1,3 +1,4 @@
+import { ChangeEvent } from 'react';
 import './search-input.scss';
 function SearchInput({
   value,
@@ -7,7 +8,7 @@ function SearchInput({
   placeholder,
 }: {
   value: string;
-  handleChange: (evt) => void;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
   showResults: boolean;
   nResults: number;
   placeholder: string;
