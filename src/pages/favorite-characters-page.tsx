@@ -3,6 +3,7 @@ import FavoriteCharacterList from '../components/page-components/favorite-charac
 import Header from '../components/header/header';
 import Subtitle from '../components/ui-components/subtitle/subtitle';
 import FavoriteCharacterListFetcher from '../components/fetcher-components/favorite-character-list-fetcher';
+import LimitFetchResultsControl from '../components/setup-app/limit-fetch-results-control/limit-fetch-results-control';
 
 function FavoritesPage() {
   return (
@@ -14,6 +15,9 @@ function FavoritesPage() {
         <div className="gap36"></div>
         <FavoriteCharacterSearch />
         <FavoriteCharacterList />
+      </div>
+      <div className="footerpage">
+        <LimitFetchResultsControl />
       </div>
     </>
   );
