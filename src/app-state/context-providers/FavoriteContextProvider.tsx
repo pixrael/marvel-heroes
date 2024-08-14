@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { FavoriteContext } from '../contexts/favorite-context';
-import { useFavoriteCharactersState } from '../../hooks/favorite-characters/useFavoriteCharactersState';
+import { useFavoriteCharactersState } from '../hooks/useFavoriteCharactersState';
 
 function FavoriteContextProvider({ children }: { children: ReactNode }) {
   const {

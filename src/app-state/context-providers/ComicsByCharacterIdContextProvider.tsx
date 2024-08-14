@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { useComicsCharacterByIdState } from '../../hooks/details-characters/useComicsCharacterByIdState';
+import { useComicsCharacterByIdState } from '../hooks/useComicsCharacterByIdState';
 import { ComicsByCharacterIdContext } from '../contexts/comics-by-character-id-context';
 
 function ComicsByCharacterIdContextProvider({

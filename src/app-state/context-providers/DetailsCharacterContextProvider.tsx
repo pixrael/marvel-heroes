@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { useDetailsCharacterState } from '../../hooks/details-characters/useDetailsCharacterState';
+import { useDetailsCharacterState } from '../hooks/useDetailsCharacterState';
 import { DetailsCharacterContext } from '../contexts/details-characters-context';
 
 function DetailsCharacterContextProvider({
