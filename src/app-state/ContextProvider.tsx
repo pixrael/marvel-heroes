@@ -3,6 +3,7 @@ import AllCharactersContextProvider from './context-providers/AllCharactersConte
 import ComicsByCharacterIdContextProvider from './context-providers/ComicsByCharacterIdContextProvider';
 import DetailsCharacterContextProvider from './context-providers/DetailsCharacterContextProvider';
 import FavoriteContextProvider from './context-providers/FavoriteContextProvider';
+import SetupAppContextProvider from './context-providers/SetupAppContextProvider';
 
 function ContextProvider({ children }: { children: ReactNode }) {
   return (
@@ -10,7 +11,7 @@ function ContextProvider({ children }: { children: ReactNode }) {
       <AllCharactersContextProvider>
         <DetailsCharacterContextProvider>
           <ComicsByCharacterIdContextProvider>
-            {children}
+            <SetupAppContextProvider>{children}</SetupAppContextProvider>
           </ComicsByCharacterIdContextProvider>
         </DetailsCharacterContextProvider>
       </AllCharactersContextProvider>

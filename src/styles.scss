@@ -84,6 +84,7 @@ body {
   --HEADER-PADDINGRIGHT: 48px;
   --HEADER-PADDINGLEFTMOBILE: 16px;
   --HEADER-PADDINGRIGHTMOBILE: 16px;
+  --FOOTER-BGCOLOR: #000;
 }
 
 /* || UTILITY CLASSES */
@@ -142,6 +143,7 @@ body {
   padding-left: 48px;
   padding-right: 48px;
   padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 @media (width <= 393px) {
@@ -151,6 +153,7 @@ body {
     padding-left: 16px;
     padding-right: 16px;
     padding-top: 24px;
+    padding-bottom: 24px;
   }
 }
 
@@ -181,3 +184,24 @@ body {
 }
 
 /* || MODIFIERS */
+
+/* footer */
+.footer {
+  height: 200px;
+  background-color: var(--FOOTER-BGCOLOR);
+  padding: 48px;
+
+  @media (width <= 393px) {
+    padding: 16px;
+  }
+
+  .instructions {
+    font-family: 'Roboto Condensed';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.41px;
+    text-align: left;
+    color: #ffffff;
+    margin-right: 16px;
+  }
+}

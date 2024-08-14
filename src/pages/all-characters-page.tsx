@@ -1,6 +1,7 @@
-import Header from '../components/ui-components/header/header';
+import Header from '../components/header/header';
 import AllCharactersList from '../components/page-components/all-character-page-components/all-characters-list/all-characters-list';
 import AllCharacterSearch from '../components/page-components/all-character-page-components/all-characters-search/all-character-search';
+import LimitFetchResultsControl from '../components/setup-app/limit-fetch-results-control/limit-fetch-results-control';
 
 function AllCharactersPage() {
   return (
@@ -10,6 +11,9 @@ function AllCharactersPage() {
         <AllCharacterSearch />
         <div className="gap36"></div>
         <AllCharactersList />
+      </div>
+      <div className="footer">
+        <LimitFetchResultsControl />
       </div>
     </>
   );
