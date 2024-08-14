@@ -12,7 +12,7 @@ function AllCharactersPage() {
         <div className="gap36"></div>
         <AllCharactersList />
       </div>
-      <div className="footer">
+      <div className="footerpage">
         <LimitFetchResultsControl />
       </div>
     </>

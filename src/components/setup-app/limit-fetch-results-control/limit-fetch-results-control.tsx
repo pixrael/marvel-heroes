@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { SetupAppContext } from '../../../app-state/contexts/setup-app-context';
 import SwitchButton from '../../ui-components/switch-button/switch-button';
+import './limit-fetch-results-control.scss';
 
 function LimitFetchResultsControl() {
   const { limitTo5Results, setLimitTo5Results } = useContext(SetupAppContext);
