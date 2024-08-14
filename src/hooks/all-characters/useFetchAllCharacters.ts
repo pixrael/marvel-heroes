@@ -6,7 +6,7 @@ export const useFetchAllCharacters = (heroToSearch?: string) => {
     limit: FETCH_ALL_CHACTER_LIMIT,
   };
   if (heroToSearch) {
-    params = { limit: 5, nameStartsWith: heroToSearch };
+    params = { limit: FETCH_ALL_CHACTER_LIMIT, nameStartsWith: heroToSearch };
   }
 
   const { data, isLoading, error } = useFetchMarvelData({
