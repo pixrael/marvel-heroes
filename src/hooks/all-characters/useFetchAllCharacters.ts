@@ -1,7 +1,10 @@
+import { FETCH_ALL_CHACTER_LIMIT } from '../../constants';
 import { useFetchMarvelData } from '../useFetchMarvelData';
 
 export const useFetchAllCharacters = (heroToSearch?: string) => {
-  let params: { limit: number; nameStartsWith?: string } = { limit: 5 };
+  let params: { limit: number; nameStartsWith?: string } = {
+    limit: FETCH_ALL_CHACTER_LIMIT,
+  };
   if (heroToSearch) {
     params = { limit: 5, nameStartsWith: heroToSearch };
   }

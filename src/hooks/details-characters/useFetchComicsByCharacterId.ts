@@ -1,3 +1,4 @@
+import { FETCH_COMICS_BY_CHACTER_ID_LIMIT } from '../../constants';
 import { useFetchMarvelData } from '../useFetchMarvelData';
 
 export const useFetchComicsByCharacterId = (id: number | undefined) => {
@@ -5,7 +6,7 @@ export const useFetchComicsByCharacterId = (id: number | undefined) => {
     resource: 'characters',
     id,
     subresource: 'comics',
-    params: { limit: 3, orderBy: 'onsaleDate' },
+    params: { limit: FETCH_COMICS_BY_CHACTER_ID_LIMIT, orderBy: 'onsaleDate' },
   });
 
   return {
