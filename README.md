@@ -60,11 +60,12 @@ npm run test-coverage
 ## Front end architecture
 
 In few words, the state is saved and managed through different contexts:
--ComicsByCharacterIdContext, contains data about the request of comics (isLoading, error, results) that one hero appears and data of the result of the request.
--DetailsCharacterContext, contains data about the request of details (isLoading, error, results) of a hero and data of the result of the request.
--AllCharacterContext, contains data about the request to fetch heroes, (isLoading, error, results) and data of the result of the request. It saves to the data of the input search from the AllCharactersPage
--FavoriteContext, contains data about every request to fetch every favorite hero, (isLoading, error, results) and data of the result of the request. It saves to the data of the input search from the FavoriteHeroPage. And the ids of the hero selected as favorites.
--SetupAppContext, contains data related to the number of results made on every fetch.
+
+- ComicsByCharacterIdContext, contains data about the request of comics (isLoading, error, results) that one hero appears and data of the result of the request.
+- DetailsCharacterContext, contains data about the request of details (isLoading, error, results) of a hero and data of the result of the request.
+- AllCharacterContext, contains data about the request to fetch heroes, (isLoading, error, results) and data of the result of the request. It saves to the data of the input search from the AllCharactersPage
+- FavoriteContext, contains data about every request to fetch every favorite hero, (isLoading, error, results) and data of the result of the request. It saves to the data of the input search from the FavoriteHeroPage. And the ids of the hero selected as favorites.
+- SetupAppContext, contains data related to the number of results made on every fetch.
 
 The components should react on changes in the context, for example when the AllCharacterContext.results changes (because data have came from the server and have been saved in the context) then the component AllCharacterList displays the cards of the heros. Or when the user interacts with the input search of the AllCharacterPage then that value is saved in AllCharacterContext.keywords.
 
